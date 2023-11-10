@@ -1,0 +1,25 @@
+
+body{
+    background-color: rgba(221, 48, 74, 0.534);
+}
+
+p{
+    font-family: 'Comic Sans MS';
+    font-size: 14pt;
+}
+
+h2{
+    color: rgb(18, 17, 125);
+    font-size: 25pt;
+}
+
+ul{
+    font-size: 14pt;
+}
+
+div{
+   
+    font-style: oblique;
+    font-family: 'Comic Sans MS';
+    font-size: 14pt;
+}

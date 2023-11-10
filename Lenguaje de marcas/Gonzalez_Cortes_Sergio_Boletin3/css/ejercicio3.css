@@ -1,0 +1,18 @@
+h1 {
+    color: rgb(255, 255, 255);
+    font-size: 35pt;
+    background-color: rgb(242, 103, 52);
+    text-align: center;
+}
+
+h4{
+    color:rgb(242, 103, 52);
+    font-size: 18pt;
+}
+
+body{
+
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16pt;
+    
+}

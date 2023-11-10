@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\gonzalez.coser24_tri\Desktop\SergioGonzalezCortes\Programación\WORKSPACE\EjerciciosUD3_Sergio_Gonzalez_Cortes"/>
+			<item value="C:\Users\gonzalez.coser24_tri\Desktop\SergioGonzalezCortes\Programación\WORKSPACE\ExamenT2SergioGonzalez"/>
+			<item value="C:\Users\gonzalez.coser24_tri\Desktop\SergioGonzalezCortes\Programación\WORKSPACE\Proyectoarraysbi"/>
+			<item value="C:\Users\gonzalez.coser24_tri\Desktop\SergioGonzalezCortes\Programación\WORKSPACE\EjemplosUD2_Sergio_Gonzalez_Cortes"/>
+			<item value="C:\Users\gonzalez.coser24_tri\Desktop\Sergio González Cortés 1ºDAM\Programación\WORKSPACE\EjerciciosUD2Arrays_Sergio_Gonzalez_Cortes"/>
+			<item value="C:\Users\gonzalez.coser24_tri\Desktop\Sergio González Cortés 1ºDAM\Programación\WORKSPACE\EjerciciosUD2_Sergio_Gonzalez_Cortes"/>
+			<item value="C:\Users\gonzalez.coser24_tri\Desktop\Sergio González Cortés 1ºDAM\Programación\WORKSPACE\ExamenT1_Sergio_Gonzalez"/>
+			<item value="C:\Users\gonzalez.coser24_tri\Desktop\Sergio González Cortés 1ºDAM\Programación\WORKSPACE\EjerciciosUD1_Parte2_Sergio_Gonzalez_Cortes"/>
+			<item value="C:\Users\gonzalez.coser24_tri\Desktop\Sergio González Cortés 1ºDAM\Programación\WORKSPACE\EjerciciosUD1_Parte1_Sergio_Gonzalez_Cortes"/>
+			<item value="C:\Users\gonzalez.coser24_tri\Desktop\Sergio González Cortés 1ºDAM\Programación\WORKSPACE\Hola_Mundo_Sergio_Gonzalez_Cortes"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>

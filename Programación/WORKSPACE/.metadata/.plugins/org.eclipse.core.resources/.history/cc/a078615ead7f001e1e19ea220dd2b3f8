@@ -1,0 +1,45 @@
+package ejemplo03;
+
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Variables
+		String nombre;
+		double precio;
+		int numRuedas;
+		String aux;
+		Vehiculo v;
+		
+		//Instanciar Scanner
+		Scanner s = new Scanner(System.in);
+		
+		//Pedir datos
+		
+		System.out.println("Introduzca nombre");
+		nombre = s.nextLine();
+		System.out.println("Introduzca precio");
+		aux = s.nextLine();
+		precio = Double.parseDouble(aux);
+		System.out.println("Introduzca número ruedas");
+		aux = s.nextLine();
+		numRuedas = Integer.parseInt(aux);
+		
+		
+		//Instanciar objeto
+		
+		v = new Vehiculo (nombre, precio, numRuedas);
+		
+		System.out.println(v);
+		
+		System.out.println(nombre);
+		
+		//System.out.println(v.nombre);
+		
+		System.out.println(v.getNombre());
+	}
+
+}

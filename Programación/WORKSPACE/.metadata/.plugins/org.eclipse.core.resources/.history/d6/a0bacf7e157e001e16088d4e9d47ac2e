@@ -1,0 +1,36 @@
+package ejemplo01;
+
+public class Alumno {
+	
+	//Atributos
+	
+	private String nombre;
+ int edad;
+	private double notaMedia;
+	
+	
+	
+	//EN LAS CLASES QUE DEFINEN DISTINTOS VALORES NO PUEDEN TENER UNA VARIABLE CON VALORES APLICADOS
+	
+	
+	//constructores
+	
+	//Para crear un objeto con valores
+	
+	//Lo que se encuentra dentro del paréntesis es llamado parámetro o argumento
+	
+	public Alumno (String nombre, int edad, double notaMedia) {
+		
+		this.nombre = nombre;
+		this.edad= edad;
+		this.notaMedia = notaMedia;
+	
+		
+	}
+	
+	
+	//Métodos
+	
+
+
+}

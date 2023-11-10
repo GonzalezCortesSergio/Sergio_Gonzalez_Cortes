@@ -1,0 +1,45 @@
+package ejercicio05;
+
+
+
+public class Copiado {
+
+	//Atributos
+	
+	String texto;
+	int numero;
+	
+	//Constructor
+	
+	public Copiado (String texto, int numero) {
+		
+		this.texto = texto;
+		this.numero = numero;
+		
+	}
+	
+	//Getter
+	
+	public String getTexto () {
+		
+		return texto;
+	}
+	
+	public int getNumero () {
+		
+		return numero;
+	}
+	
+	//Métodos
+	
+	public void mostrarTexto (int numero, String texto) {
+		
+		for (int i = 0; i < numero; i++) {
+			
+			System.out.println(texto);
+		}
+	}
+	
+	
+	
+}

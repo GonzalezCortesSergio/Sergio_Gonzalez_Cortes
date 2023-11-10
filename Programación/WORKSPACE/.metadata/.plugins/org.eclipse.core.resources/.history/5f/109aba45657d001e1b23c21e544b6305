@@ -1,0 +1,25 @@
+package ejemplo01;
+
+public class Alumno {
+	
+	//Atributos
+	
+	String nombre;
+	int edad;
+	double notaMedia;
+	boolean matriculado;
+	
+	
+	//EN LAS CLASES QUE DEFINEN DISTINTOS VALORES NO PUEDEN TENER UNA VARIABLE CON VALORES APLICADOS
+	
+	//Métodos
+	
+	calcularMedia
+	insertarNota
+	darAlta
+	matricular
+	medirAsistencia
+	notificarFaltas
+	
+
+}

@@ -1,0 +1,29 @@
+package ejemplo03;
+
+public class Vehiculo {
+
+	
+	//Atributos
+	private String nombre;
+	private double precio;
+	private int numRuedas;
+	
+	
+	//Constructor
+	
+	public Vehiculo (String nombre, double precio, int numRuedas) {
+		
+		this.nombre = nombre;
+		this.precio = precio;
+		this.numRuedas = numRuedas;
+		
+		
+	}
+	
+	//Getters and Setters
+	
+	public  getNombre () {
+		
+		
+	}
+}

@@ -1,0 +1,51 @@
+package ejercicio01;
+
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Variables
+		String asignatura;
+		int aula;
+		String fecha;
+		String aux;
+		int opcion= 1;
+		Examen e1;
+		//Scanner
+		Scanner s = new Scanner (System.in);
+		
+		//Bienvenida
+		
+		System.out.println("***********************************************************");
+		System.out.println("Bienvenido, este programa mostrará la cabecera de un examen");
+		System.out.println("***********************************************************");
+			
+		
+		//Petición de datos
+		System.out.println("Introduzca el nombre de la asignatura");
+		asignatura= s.nextLine();
+		System.out.println("Introduzca el número del aula");
+		aux= s.nextLine();
+		aula= Integer.parseInt(aux);
+		System.out.println("Introduzca la fecha del examen");
+		fecha= s.nextLine();
+		
+		
+		//Instanciar objeto
+		e1= new Examen (asignatura, aula, fecha);
+		
+		
+		//Uso de objeto
+		e1.imprimirCabecera();
+			
+					
+					
+				
+			
+		
+	}
+
+}

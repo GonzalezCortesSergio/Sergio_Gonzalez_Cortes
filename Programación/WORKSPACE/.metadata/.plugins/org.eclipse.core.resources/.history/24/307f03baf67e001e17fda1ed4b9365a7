@@ -1,0 +1,43 @@
+package ejercicio03;
+
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Variables
+		Operaciones o1;
+		String aux;
+		int entero;
+		
+		//Scanner
+		Scanner s = new Scanner(System.in);
+		
+		//Bienvenida
+		
+		System.out.println("*************************************************************"
+				+ "******************************************");
+		System.out.println("Bienvenido, este programa te dirá si el número que introduce "
+				+ "es positivo o negativo y si es par o impar");
+		System.out.println("*************************************************************"
+				+ "******************************************");
+		
+		//Pedir datos
+		
+		System.out.println("Introduzca un número entero");
+		aux= s.nextLine();
+		entero= Integer.parseInt(aux);
+		
+		//Instanciar objeto
+		o1 = new Operaciones();
+		
+		//Acciones objeto
+		
+		o1.mirarValor(entero);
+		
+		o1.mirarParImpar(entero);
+	}
+
+}
