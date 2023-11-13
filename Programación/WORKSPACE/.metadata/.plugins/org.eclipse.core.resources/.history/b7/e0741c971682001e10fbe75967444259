@@ -1,0 +1,73 @@
+package referente_ejercicio06;
+
+import java.util.Random;
+
+public class Generadora {
+
+	
+	//Métodos
+	
+	public int generarNum (int desde, int hasta) {
+		
+		int num = 0;
+		Random r = new Random (System.nanoTime());
+		num = r.nextInt(hasta-desde+1)+desde;
+		
+		return num;
+	}
+	
+	public int generarPrimitiva (int desde, int hasta) {
+		
+		int num = 0;
+		num = generarNum (desde, hasta);
+		return num;
+	}
+	
+	public int generarParImpar (int desdeP, int hastaP) {
+		
+		int num = 0;
+		num = generarNum (desdeP, hastaP);
+		return num;	
+	
+	}
+	
+
+	
+	public boolean comprobarParImpar (int desdeP, int hastaP) {
+		
+		boolean numPar;
+		int num1;
+		int num2;
+		int dos = 2;
+		
+		num1 = generarParImpar(desdeP, hastaP);
+		num2 = generarParImpar (desdeP, hastaP);
+		
+		if ((num1+num2) % dos == 0) {
+			
+			numPar = true;
+			
+		}
+		
+		else {
+			
+			numPar = false;
+		}
+		
+		return numPar;
+		
+	}
+	
+	public void mostrarParImpar (boolean numPar) {
+		
+		if (numPar == true ) {
+			
+			System.out.println("Ganan Pares");
+		}
+		
+		else {
+			
+			System.out.println("Ganan Nones");
+		}
+	}
+}

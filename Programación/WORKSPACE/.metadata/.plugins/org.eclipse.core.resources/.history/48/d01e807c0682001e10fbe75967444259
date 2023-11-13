@@ -23,44 +23,20 @@ public class Operaciones {
 		
 	}
 	
-	public void mostrarValor (boolean valorPositivo) {
+	public void mostrarValor () {
 		
-		if (valorPositivo == false) {
-			
-			System.out.println("El número es negativo");
-		}
 		
-		else {
-			
-			System.out.println("El número es positivo");
-		}
 	}
 	
-	public boolean mirarParImpar (int entero) {
+	public void mirarParImpar (int entero) {
 		
-		boolean nPar;
 		int dos = 2;
 		
 		if (entero % dos == 0 ) {
 			
-			nPar = true;
-			
-		}
-		
-		else {
-			
-			nPar = false;
-		}
-		
-		return nPar;
-	}
-	
-	public void mostrarParImpar (boolean nPar) {
-		
-		if (nPar == true) {
-			
 			System.out.println("El número es par");
 		}
+		
 		else {
 			
 			System.out.println("El número es impar");

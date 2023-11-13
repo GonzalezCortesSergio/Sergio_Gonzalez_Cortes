@@ -25,7 +25,7 @@ public class Operaciones {
 	
 	public void mostrarValor (boolean valorPositivo) {
 		
-		if (valorPositivo == false) {
+		if (valorPositivo = false) {
 			
 			System.out.println("El número es negativo");
 		}
@@ -57,7 +57,7 @@ public class Operaciones {
 	
 	public void mostrarParImpar (boolean nPar) {
 		
-		if (nPar == true) {
+		if (nPar = true) {
 			
 			System.out.println("El número es par");
 		}
