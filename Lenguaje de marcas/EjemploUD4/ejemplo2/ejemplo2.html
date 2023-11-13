@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+
+        nav {
+
+            border: 3px solid blue;
+            display: flex;
+            width: 45%;
+           
+            justify-content:space-evenly;
+            
+        }
+
+        li{
+
+            border: 2px solid red;
+            list-style-type: none;
+            flex-basis: 10%;
+            flex-grow: 1;
+            flex-shrink: 4;
+        }
+
+        .doble{
+
+            flex-grow: 2;
+            flex-shrink: 1;
+        }
+
+        .triple{
+
+            flex-grow: 3;
+            flex-shrink: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+
+        <li>Primera opción</li>
+        <li class="doble">Segunda opción</li>
+        <li class="triple">Tercera opción</li>
+        <li>Cuarta opción</li>
+    </nav>
+    
+</body>
+</html>
