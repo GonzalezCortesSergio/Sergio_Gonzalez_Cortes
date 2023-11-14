@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Kristen Itc';
+    src: url("./kristen-itc.ttf");
+}
+article{
+
+    width: 800px;
+    height: 565px;
+    border: 0px white;
+    border-radius: 50px;
+    background-image:url("./fondo_trama.png") ;
+    
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 100px;
+    
+}
+article div{
+    font-family: 'Kristen Itc' , 'Berlin Sans FB' , Arial;
+    font-size: 35pt;
+    text-transform: uppercase ;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    
+}
