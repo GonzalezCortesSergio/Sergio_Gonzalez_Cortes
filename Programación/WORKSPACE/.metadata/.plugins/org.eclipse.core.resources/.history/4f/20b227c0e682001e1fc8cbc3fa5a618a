@@ -1,0 +1,14 @@
+package ejemplo_sobrecarga;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Operaciones o = new Operaciones();
+		int a = 12;
+		double  b = 24;
+		System.out.println(o.sumar(a, b));
+	}
+
+}

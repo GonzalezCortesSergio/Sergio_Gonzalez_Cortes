@@ -1,0 +1,124 @@
+package referente_ejercicio06;
+
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		//Variables
+		String aux;
+		int desde;
+		int hasta;
+		int primitiva;
+		int chinos;
+		int opcion;
+		int cantidad;
+		int numParImpar;
+		boolean numPar;
+		boolean numCorrecto;
+		Generadora g1 = new Generadora();
+		
+		
+		//Inicializar Scanner
+		Scanner s = new Scanner(System.in);
+		
+		//Bienvenida
+		
+		System.out.println("****************************************"
+				+ "******************");
+		System.out.println("Bienvenido a su salón de juegos, escoja "
+				+ "a qué quiere jugar");
+		System.out.println("****************************************"
+				+ "******************");
+		
+		do {
+			
+		
+			System.out.println("""
+					
+					-------------------------------------
+					Opcion 1:	Jugar a la Primitiva
+					Opcion 2:	Jugar a Pares y nones
+					Opcion 3:	Jugar a los chinos
+					Opcion 0:	Salir
+					-------------------------------------
+					""");
+		
+			aux = s.nextLine();
+			opcion = Integer.parseInt(aux);
+		
+			switch (opcion) {
+		
+				case 0:
+					
+					System.out.println("Saliendo...");
+					
+					break;
+					
+				case 1:
+					
+					System.out.println("Diga el número mínimo que quiere que salga");
+					aux = s.nextLine();
+					desde = Integer.parseInt(aux);
+					System.out.println("Diga el número máximo que quiere que salga");
+					aux = s.nextLine();
+					hasta = Integer.parseInt(aux);
+					System.out.println("Diga la cantidad de números que tiene la primitiva");
+					aux = s.nextLine();
+					primitiva = Integer.parseInt(aux);
+					
+					for (int i = 0; i < primitiva; i++) {
+						
+						System.out.print(g1.generarPrimitiva(desde, hasta)+ "\t");
+						
+					}
+					
+					System.out.println();
+					
+					break;
+					
+				case 2:
+					
+					System.out.println("Introduzca el número mínimo que quiere que se genere");
+					aux = s.nextLine();
+					desde = Integer.parseInt(aux);
+					System.out.println("Introduzca el número máximo que quiere que se genere");
+					aux = s.nextLine();
+					hasta = Integer.parseInt(aux);
+					
+					System.out.println("Introduzca un número par o impar");
+					aux = s.nextLine();
+					numParImpar = Integer.parseInt(aux);
+					
+					numPar = g1.comprobarParImpar(desde, hasta, numParImpar);
+					
+					g1.mostrarParImpar(numPar);
+					
+					break;
+					
+				case 3:
+					
+					desde = 1;
+					
+					System.out.println("Introduzca el número máximo de chinos");
+					aux = s.nextLine();
+					hasta = Integer.parseInt(aux);
+					System.out.println("Introduzca su número de chinos");
+					aux = s.nextLine();
+					chinos = Integer.parseInt(aux);
+					
+					numCorrecto = g1.comprobarChinos(chinos, desde, hasta);
+					
+					g1.mostrarChinos(numCorrecto, chinos);
+					
+					break;
+					
+			}
+		
+		}while (opcion != 0);
+	}
+
+}
