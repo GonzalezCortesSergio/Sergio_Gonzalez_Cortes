@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo página 3</title>
+    <style type="text/css">
+        section {
+
+            border: 3px solid blue;
+            display: flex;
+            width: 750px;
+            justify-content: space-between;
+
+
+        }
+
+        p {
+
+            border: 2px solid red;
+        }
+
+        section p img{
+
+           width: 100%;
+        }
+
+        section>p {
+
+            flex: 0 0 35%;
+        }
+
+        section>p+p {
+
+            flex: 0 0 40%;
+        }
+
+        .boton {
+
+            background-color: lightcoral;
+            text-align: center;
+            padding: 8px;
+        }
+
+        section div {
+
+            flex: 0 1 25%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <section>
+
+        <p><img src="../../../../../Downloads/0dvyoeqeclo81.png"  alt="No se que es esto"></p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eaque voluptate illo sint culpa. Non
+            repellat voluptate quaerat voluptatum aliquam, illum iste hic dolorem corrupti in ullam quasi doloremque
+            ipsam! </p>
+        <div>
+            <p class="boton">Pincha aquí</p>
+            <p class="boton">Pincha aquí</p>
+        </div>
+    </section>
+</body>
+
+</html>
