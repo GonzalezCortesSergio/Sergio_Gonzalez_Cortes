@@ -64,6 +64,8 @@ public class Producto {
 		this.activo = activo;
 	}
 
+	
+	
 
 	
 	//To String 
