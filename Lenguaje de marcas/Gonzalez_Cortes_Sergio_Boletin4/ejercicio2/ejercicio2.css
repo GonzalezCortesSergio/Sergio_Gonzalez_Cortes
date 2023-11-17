@@ -2,24 +2,24 @@
     font-family: 'Kristen Itc';
     src: url("./kristen-itc.ttf");
 }
-article{
+p{
 
     width: 800px;
     height: 565px;
     border: 0px white;
     border-radius: 50px;
-    background-image:url("./fondo_trama.png") ;
-    
+    background-image: url("./fondo_jovenes.png"), url("./fondo_trama.png");
+    background-position: 50px 180px , 0px 0px;
+    background-size: 85%, auto;
+    background-repeat: no-repeat;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 100px;
-    
-}
-article div{
     font-family: 'Kristen Itc' , 'Berlin Sans FB' , Arial;
     font-size: 35pt;
-    text-transform: uppercase ;
+    font-variant: small-caps;
     color: rgb(255, 255, 255);
     text-align: center;
+   
     
 }
