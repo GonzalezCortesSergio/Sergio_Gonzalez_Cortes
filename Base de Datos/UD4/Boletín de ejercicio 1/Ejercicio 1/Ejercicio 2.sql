@@ -14,7 +14,7 @@ WHERE (d.department_name = 'IT'
 --2: Seleccionar el FIRST_NAME y LAST_NAME de los managers de los empleados 
 --del departamento de Administration.
 
-SELECT j.first_name, j.last_name
+SELECT DISTINCT j.first_name, j.last_name
 FROM employees j 
 	JOIN employees e ON (e.manager_id = j.employee_id)
 	JOIN departments d ON (d.department_id = e.department_id)
@@ -32,7 +32,7 @@ WHERE department_name = 'Public Relations';
 
 --4: Seleccionar aquellos empleados que trabajen en oficinas de América.
 
-SELECT first_name, last_name
+SELECT e.*
 FROM employees e
 	JOIN departments d USING (department_id)
 	JOIN locations l USING (location_id)
