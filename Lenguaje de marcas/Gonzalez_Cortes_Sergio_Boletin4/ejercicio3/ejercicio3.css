@@ -1,0 +1,104 @@
+*{
+
+    box-sizing: border-box;
+}
+#envoltorio{
+    width: 85%;
+    margin: 0 auto;
+    min-width: 650px;
+
+}
+
+#envoltorio #contenido{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#envoltorio #contenido nav{
+    background-color: rgb(255, 30, 50);
+    color:#fff;
+    
+    width: 160px;
+    flex-basis: 20%; 
+    flex-grow: 1;
+    flex-shrink: 1;
+    
+    padding: 20px 3%;
+
+    position: fixed;
+
+    right: 3px;
+
+}
+#envoltorio #contenido nav li{
+    list-style: none;
+    position: relative;
+    right: 20px;
+    
+}
+
+#envoltorio #contenido main{
+    flex: 1 1 60%; 
+    padding: 20px 3%;
+}
+
+body{
+    background-color: rgba(221, 48, 74, 0.534);
+}
+
+header {
+
+    background-color: rgb(0, 0, 0);
+    width: 1000px;
+    height: 100px;
+    border-radius: 15px;
+    justify-content: space-between;
+}
+
+
+.imagen1{
+
+    width: 100px;   
+    position: relative;
+    top: 30px;
+}
+.imagen2{
+
+    width: 100px;
+    position: relative;
+    left: 50px;
+    top: 30px;
+}
+
+
+header p {
+
+    color: rgb(255, 0, 10);
+    text-transform: uppercase;
+    font-size: 35pt;
+    position: relative;
+    bottom: 30px;
+    
+}
+p{
+    font-family: 'Comic Sans MS';
+    font-size: 14pt;
+}
+
+h2{
+    color: rgb(18, 17, 125);
+    font-size: 25pt;
+}
+
+ul{
+    font-size: 14pt;
+}
+
+div{
+   
+    font-style: oblique;
+    font-family: 'Comic Sans MS';
+    font-size: 14pt;
+}
