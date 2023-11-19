@@ -56,4 +56,24 @@ SELECT c.nombre
 FROM comprador c
 	JOIN operacion o USING (id_cliente)
 	JOIN inmueble i USING (id_inmueble)
-	JOIN
+	JOIN tipo t ON (i.tipo_inmueble = t.id_tipo)
+WHERE t.nombre IN ('Casa', 'Piso')
+	AND i.provincia IN ('Jaén', 'Córdoba')
+	AND precio_final BETWEEN 150000 AND 200000
+	AND o.fecha_operacion = i.fecha_alta + interval '3 M' ;
+	
+/*
+5: Selecciona la media del precio inicial (en la tabla 
+inmueble), del precio final (en la tabla operación) y de 
+la diferencia en porcentaje entre ellas de aquellas viviendas
+(Casa o Piso) en alquiler que tengan menos de 100 metros 
+cuadrados y que hayan tardado un año o más en alquilarse.
+*/
+
+SELECT *
+FROM inmueble i
+	JOIN operacion o USING (id_inmueble)
+	JOIN tipo t ON (t.id_tipo = i.tipo_inmueble)
+WHERE i.superficie < 100
+	AND t.nombre IN ('Casa', 'Piso')
+	AND o.fecha_operacion = i.fecha_alta + 365;
