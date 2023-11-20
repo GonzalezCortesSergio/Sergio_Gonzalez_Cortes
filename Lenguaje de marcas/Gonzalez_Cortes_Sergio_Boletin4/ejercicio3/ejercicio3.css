@@ -29,13 +29,14 @@
 
     position: fixed;
 
-    right: 3px;
+    right: 0px;
+    top: 250px;
 
 }
 #envoltorio #contenido nav li{
     list-style: none;
     position: relative;
-    right: 20px;
+    right: 40px;
     
 }
 
