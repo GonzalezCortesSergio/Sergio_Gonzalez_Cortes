@@ -7,6 +7,7 @@ public class Ticket {
 	private String codigo;
 	private int viajes;
 	private String fecha;
+	private boolean activo;
 	
 	
 	//Constructor
@@ -47,6 +48,13 @@ public class Ticket {
 
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
+	}
+	
+	public boolean isActivo (Boolean activo) {
+		
+		this.activo = activo;
+		
+		return activo;
 	}
 
 
