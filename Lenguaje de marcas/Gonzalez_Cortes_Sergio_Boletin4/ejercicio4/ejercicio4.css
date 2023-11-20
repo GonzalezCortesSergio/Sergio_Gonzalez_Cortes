@@ -1,0 +1,85 @@
+header{
+
+    background-color: rgb(42, 135, 248);
+    width: 85%;
+    height: 100px;    
+    border-radius: 15px;
+    position: relative;
+    left: 5%;
+
+}
+
+header h1{
+
+    color: white;
+    font-family: fantasy;
+    text-transform:uppercase ;
+    text-align: center;
+    position: relative;
+    top: 20%;
+    font-size: 35pt;
+}
+
+
+main {
+    display: flex;
+    width: 85%;
+}
+
+main article {
+
+    background-color: rgb(42, 135, 248);
+    width: 75%;
+    height: 550px;
+    border-radius: 40px;
+    position: relative;
+    top: 35px;
+    left: 5%;
+}
+
+main article p {
+
+    color: white;
+    font-family: fantasy;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 35pt;
+    position: relative;
+    top: 35%;
+}
+
+main aside {
+
+    
+    width: 25%;
+    border-radius: 5px;
+    position: relative;
+    top: 20%;
+    left: 10%;
+    
+    
+    
+}
+
+main aside article {
+
+    height: 200px;
+    background-color: rgb(42, 135, 248);
+    text-align: center;
+}
+
+main aside article img {
+
+    width: 35%;
+    position: relative;
+    top: 25%;
+
+}
+
+main aside article p {
+
+    text-align: center;
+    text-transform: lowercase;
+    text-decoration: underline;
+    
+}
