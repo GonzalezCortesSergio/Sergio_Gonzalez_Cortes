@@ -6,12 +6,16 @@ y donde el nombre del vendedor contenga una A mayúscula
 o minúscula.
 */
 
-SELECT *
+SELECT i.*
 FROM inmueble i
 	JOIN operacion o USING (id_inmueble)
 	JOIN vendedor v USING (id_vendedor)
-WHERE i.superficie = 200
-	AND v.nombre ILIKE '%a%';
+WHERE i.superficie > 200
+	AND v.nombre ILIKE '%a%'
+	AND ((TO_CHAR (fecha_operacion, 'ID') = '1'
+	AND TO_CHAR (fecha_operacion, 'MM') = '02')
+	OR (TO_CHAR(fecha_operacion, 'ID') = '5'
+	AND TO_CHAR (fecha_operacion, 'MM') = '03'));
 	
 	
 /*
@@ -23,10 +27,9 @@ de Andalucía.
 
 SELECT ROUND (AVG (precio), 2) AS "precio_medio"
 FROM inmueble i
-WHERE (fecha_alta::text LIKE '%-03-%'
-	OR fecha_alta::text LIKE '%-04-%')
-	AND provincia IN ('Huelva', 'Cádiz', 'Málaga', 
-					  'Granada', 'Almería');
+	JOIN tipo t ON (i.tipo_inmueble = t.id_tipo)
+WHERE EXTRACT(MONTH from fecha_alta) IN (3,4)
+	AND t.nombre IN ('Casa', 'Piso');
 					  
 /*
 3: ¿Cuál es la media del porcentaje de diferencia 
