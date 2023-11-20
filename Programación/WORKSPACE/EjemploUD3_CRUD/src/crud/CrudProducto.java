@@ -144,7 +144,33 @@ public class CrudProducto {
 			lista[index].setPrecioUnitario(precioN);
 		}
 	}
+	
+	
 	 
+	
+	//Mostrar todos los productos de la lista
+	
+	public void imprimirTodosLosProductos () {
+		
+		for(int i = 0; i<lista.length; i++) {
+			
+			System.out.println((i+1)+". "+lista[i]);
+		}
+	}
+	
+	//Mostrar solo los productos cuyo atributo activo es true, es decir,
+	//están a la venta
+	
+	public void imprimirSoloActivos () {
+		
+		for(int i = 0; i < lista.length; i++) {
+			
+			if (lista[i].isActivo()) {
+				
+				
+			}
+		}
+	}
 	
 	
 }
