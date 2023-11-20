@@ -29,7 +29,8 @@ SELECT ROUND (AVG (precio), 2) AS "precio_medio"
 FROM inmueble i
 	JOIN tipo t ON (i.tipo_inmueble = t.id_tipo)
 WHERE EXTRACT(MONTH from fecha_alta) IN (3,4)
-	AND t.nombre IN ('Casa', 'Piso');
+	AND t.nombre IN ('Casa', 'Piso')
+	AND i.provincia IN ('Huelva', 'Cádiz', 'Málaga', 'Granada', 'Almería');
 					  
 /*
 3: ¿Cuál es la media del porcentaje de diferencia 
@@ -44,7 +45,7 @@ SELECT ROUND ((precio_final / precio) * 100, 2) AS "media_diferencia"
 FROM inmueble i
 	JOIN operacion o ON  (o.id_inmueble = i.id_inmueble)
 	JOIN tipo t ON (t.id_tipo = i.tipo_inmueble)
-WHERE fecha_operacion::text LIKE '%-01-%'
+WHERE EXTRACT (MONTH from fecha_operacion) = 1
 	AND t.nombre IN ('Oficina', 'Local', 'Suelo');
 	
 /*
@@ -63,7 +64,7 @@ FROM comprador c
 WHERE t.nombre IN ('Casa', 'Piso')
 	AND i.provincia IN ('Jaén', 'Córdoba')
 	AND precio_final BETWEEN 150000 AND 200000
-	AND o.fecha_operacion = i.fecha_alta + interval '3 M' ;
+	AND o.fecha_operacion = fecha_alta + interval '3 M' ;
 	
 /*
 5: Selecciona la media del precio inicial (en la tabla 
@@ -73,10 +74,10 @@ la diferencia en porcentaje entre ellas de aquellas viviendas
 cuadrados y que hayan tardado un año o más en alquilarse.
 */
 
-SELECT *
+SELECT i.*
 FROM inmueble i
 	JOIN operacion o USING (id_inmueble)
 	JOIN tipo t ON (t.id_tipo = i.tipo_inmueble)
 WHERE i.superficie < 100
 	AND t.nombre IN ('Casa', 'Piso')
-	AND o.fecha_operacion = i.fecha_alta + 365;
+	AND o.fecha_operacion = i.fecha_alta + interval '1 Y' ;
