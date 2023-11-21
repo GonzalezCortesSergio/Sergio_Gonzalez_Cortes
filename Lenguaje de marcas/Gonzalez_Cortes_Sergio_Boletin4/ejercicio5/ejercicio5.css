@@ -1,3 +1,7 @@
+* {
+
+    box-sizing: border-box;
+}
 #envoltorio{
 
     width: 100%;
@@ -22,21 +26,94 @@
     background-color: rgb(155,187,89);
     color: white;
     font-size: 20pt;
-    height: 30px;
+    height: 100px;
     padding-top: 0.1%;
     padding-left: 0.5%;
     
 }
-
-#envoltorio #contenido {
+#envoltorio .contenido {
 
     display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-
 }
 
-#envoltorio #contenido main nav {
+#envoltorio .contenido aside {
 
     background-color: rgb(79,129,189);
+    color: white;
+    width: 25%;
+    flex-basis: 20%;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    padding: 20px 3%;
+    
+    
 }
+
+#envoltorio .contenido aside h2{
+
+    font-size: 20pt;
+    
+    
+}
+
+
+
+#envoltorio .contenido main {
+
+    flex: 1 1 60%;
+    padding: 20px 3%;
+}
+
+#envoltorio .contenido main h1{
+
+    font-size: 30pt;
+}
+
+#envoltorio .contenido main p{
+
+    font-size: 16pt;
+}
+
+#envoltorio .contenido aside section {
+
+    margin-bottom: 50px;
+}
+#envoltorio .contenido aside section h1{
+
+    font-size: 20pt;
+}
+
+#envoltorio .contenido aside section article img{
+
+    width: 100%
+}
+
+
+#envoltorio .contenido aside>article {
+
+    background-color: white;
+    height: 150px;
+    border-radius: 25px;
+    text-align: center;
+    padding-top: 10%;
+}
+
+#envoltorio .contenido aside>article p {
+    color: black;
+    font-size: 16pt;
+}
+
+#envoltorio footer {
+
+    background-color: rgb(155,187,89);
+    padding-top: 0.1%;
+    padding-left: 3%;
+    font-weight: bold;
+    height: 50px;
+}
+
+
+
+
+

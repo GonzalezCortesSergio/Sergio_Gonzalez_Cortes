@@ -1,0 +1,30 @@
+*{
+
+    box-sizing: border-box;
+}
+
+.envoltorio {
+
+    width: 100%;
+    min-width: 650px;
+    margin: 0 auto;
+    font-family: Arial;
+}
+
+.envoltorio header{
+
+    border: rgba(0, 0, 0, 0.1) solid;
+}
+
+.envoltorio .contenido {
+
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    
+}
+
+.envoltorio .contenido main {
+
+    flex-basis: 70%;
+}
