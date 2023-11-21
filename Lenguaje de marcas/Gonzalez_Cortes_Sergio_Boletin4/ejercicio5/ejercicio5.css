@@ -1,0 +1,42 @@
+#envoltorio{
+
+    width: 100%;
+    margin: 0 auto;
+    min-width: 650px;
+    font-family: Arial;
+}
+
+#envoltorio header{
+
+    background-color: rgb(79,129,189);
+    text-align: center;
+    height: 200px;
+    color: white;
+    font-size: 25pt;
+    padding-top: 1%;
+}
+
+
+#envoltorio nav {
+
+    background-color: rgb(155,187,89);
+    color: white;
+    font-size: 20pt;
+    height: 30px;
+    padding-top: 0.1%;
+    padding-left: 0.5%;
+    
+}
+
+#envoltorio #contenido {
+
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+
+}
+
+#envoltorio #contenido main nav {
+
+    background-color: rgb(79,129,189);
+}
