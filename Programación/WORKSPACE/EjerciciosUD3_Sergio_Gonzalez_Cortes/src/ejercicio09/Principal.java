@@ -59,7 +59,7 @@ public class Principal {
 					
 				case 3:
 					
-					numeroGanador = s.hacerSorteo();
+					numeroGanador = s.generarNumero();
 					
 					s.mostrarGanador(numeroElegido, numeroGanador);
 					

@@ -17,11 +17,7 @@ public class Sorteo {
 		 
 	}
 	
-	public int hacerSorteo () {
-		
-		return generarNumero();
-		
-	}
+	
 	
 	public boolean comprobarGanador (int numeroElegido, int numeroGanador) {
 		
