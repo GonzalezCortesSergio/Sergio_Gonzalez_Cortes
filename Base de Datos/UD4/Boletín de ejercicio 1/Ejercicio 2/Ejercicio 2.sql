@@ -62,6 +62,11 @@ ORDER BY country_name;
 --Al menos, tendrá dos condiciones en el WHERE (conectadas con AND u OR)
 --Debe ordenar la salida por algún criterio.
 
+
+/*
+Selecciona el first_name y last_name de los empleados que tengan como mánager
+a Alexander Hunold y su región sea Americas.
+*/
 SELECT e.first_name ,  e.last_name  
 FROM employees e
 	JOIN employees j ON (e.manager_id = j.employee_id)
