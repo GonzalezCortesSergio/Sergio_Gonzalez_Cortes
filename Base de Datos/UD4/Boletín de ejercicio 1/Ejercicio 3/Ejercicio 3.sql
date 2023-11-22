@@ -81,11 +81,29 @@ la diferencia en porcentaje entre ellas de aquellas viviendas
 cuadrados y que hayan tardado un año o más en alquilarse.
 */
 
-SELECT AVG (precio), AVG (precio_final) 
+SELECT AVG (precio), AVG (precio_final), 
+	ROUND(((AVG (precio) - AVG (precio_final)) / AVG(precio))* 100, 2)
 FROM inmueble i
 	JOIN operacion o USING (id_inmueble)
 	JOIN tipo t ON (t.id_tipo = i.tipo_inmueble)
 WHERE i.superficie < 100
 	AND t.nombre IN ('Casa', 'Piso')
 	AND tipo_operacion = 'Alquiler'
-	AND fecha_operacion >= fecha_alta + '1 year'::interval;
+	AND fecha_operacion >= fecha_alta + '1 month'::interval;
+	
+/*Cambiamos de 1 año a 1 mes la condición para que aparezca
+un resultado que no sea nulo*/
+
+/*
+6. Selecciona el alquiler de vivienda (Casa o Piso) más caro 
+realizado en Julio o Agosto de cualquier año en la provincia 
+de Huelva.
+*/
+
+SELECT MAX (precio_final)
+FROM inmueble i JOIN tipo t ON (t.id_tipo = i.tipo_inmueble)
+	JOIN operacion o USING (id_inmueble)
+WHERE nombre IN ('Casa', 'Piso')
+	AND TO_CHAR (fecha_operacion, 'MM') IN ('07', '08')
+	AND tipo_operacion = 'Alquiler'
+	AND provincia = 'Huelva';
