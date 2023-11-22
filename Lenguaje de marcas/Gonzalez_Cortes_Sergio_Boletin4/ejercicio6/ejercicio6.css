@@ -27,4 +27,40 @@
 .envoltorio .contenido main {
 
     flex-basis: 70%;
+    flex: 1 1 auto;
+    border: rgba(0, 0, 0, 0.1) solid;
 }
+
+.envoltorio .contenido main li {
+
+    
+    position: relative;
+    left: 5%
+    
+}
+
+.envoltorio .contenido aside article {
+
+    border: rgba(0, 0, 0, 0.1) solid;
+}
+
+.envoltorio footer {
+
+    background-color: rgb(52,58,64);
+}
+
+.envoltorio footer h2{
+
+    color: rgb(244,128,32);
+}
+
+.envoltorio footer p{
+
+    color: white;
+}
+
+.underline{
+
+    text-decoration: underline;
+}
+
