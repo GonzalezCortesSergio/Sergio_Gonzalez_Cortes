@@ -5,16 +5,18 @@ public class Ticket {
 	
 	//Atributos
 	private String codigo;
+	private int pasajeros;
 	private int viajes;
-	private String fecha;
-	private boolean activo;
+	private double precioUnitario;
+	
 	
 	
 	//Constructor
-	public Ticket(String codigo, int viajes, String fecha) {
+	public Ticket(String codigo, int pasajeros, int viajes, double precioUnitario) {
 		this.codigo = codigo;
+		this.pasajeros = pasajeros;
 		this.viajes = viajes;
-		this.fecha = fecha;
+		this.precioUnitario = precioUnitario;
 	}
 
 
@@ -39,29 +41,34 @@ public class Ticket {
 	public void setViajes(int viajes) {
 		this.viajes = viajes;
 	}
-
-
-	public String getFecha() {
-		return fecha;
-	}
-
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
+	
+	public int getPasajeros () {
+		
+		return pasajeros;
 	}
 	
-	public boolean isActivo (Boolean activo) {
+	public void setPasajeros (int pasajeros) {
 		
-		this.activo = activo;
-		
-		return activo;
+		this.pasajeros = pasajeros;
 	}
+
+
+	public double getPrecioUnitario() {
+		return precioUnitario;
+	}
+
+
+	public void setPrecioUnitario(double precioUnitario) {
+		this.precioUnitario = precioUnitario;
+	}
+	
+
 
 
 	//toString
 	@Override
 	public String toString() {
-		return "Ticket [codigo=" + codigo + ", viajes=" + viajes + ", fecha=" + fecha + "]";
+		return "Ticket [codigo=" + codigo + ", pasajeros="+pasajeros+ ", viajes=" + viajes + ", precioUnitario=" + precioUnitario +"]";
 	}
 	
 	

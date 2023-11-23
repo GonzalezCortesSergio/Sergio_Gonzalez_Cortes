@@ -14,9 +14,6 @@ public class Maquina {
 		this.p = p;
 	}
 	
-	public void comprarBillete (int numeroBilletes) {
-		
-		
-	}
+	
 	
 }
