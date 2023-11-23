@@ -4,15 +4,32 @@ public class Maquina {
 
 	
 	//Atributos
-	private Ticket p;
+	private Ticket t;
 	
 	
 	//Constructor
 	
-	public Maquina (Ticket p) {
+	public Maquina (Ticket t) {
 		
-		this.p = p;
+		this.setT(t);
 	}
+
+
+	public Ticket getT() {
+		return t;
+	}
+
+
+	public void setT(Ticket t) {
+		this.t = t;
+	}
+	
+	public double dineroADevolver (double dineroAPagar) {
+		
+		return dineroAPagar-t.getPrecioUnitario();
+	}
+	
+	
 	
 	
 	
