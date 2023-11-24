@@ -5,29 +5,60 @@ public class Maquina {
 	
 	//Atributos
 	private Ticket t;
+	private double saldoTotal;
+	private String contrasenya;
 	
 	
-	//Constructor
-	
-	public Maquina (Ticket t) {
+	public double comprarBilletes (int cantidadTickets) {
 		
-		this.setT(t);
-	}
-
-
-	public Ticket getT() {
-		return t;
-	}
-
-
-	public void setT(Ticket t) {
-		this.t = t;
+		double total;
+		
+		total = cantidadTickets * t.getPrecioUnitario();
+		
+		return total;
 	}
 	
-	public double dineroADevolver (double dineroAPagar) {
+	public double calcularCambio (double dineroIngresado, int cantidadTickets) {
 		
-		return dineroAPagar-t.getPrecioUnitario();
+		double cambio = 0;
+		
+		cambio = dineroIngresado - comprarBilletes(cantidadTickets);
+		
+		return cambio;
 	}
+	
+	public double calcularSaldoTotal (int cantidadTickets) {
+		
+		saldoTotal += comprarBilletes (cantidadTickets);
+		
+		return saldoTotal;
+		
+	}
+	
+	public void cambiarPrecioBillete (double precioN) {
+		
+		t.setPrecioUnitario(precioN);
+	}
+	
+	public boolean comprobarContrasenya (String contrasenyaUsu) {
+		
+		if (contrasenyaUsu.equals(contrasenya)) {
+			
+			return true;
+		}
+		
+		else {
+			
+			return false;
+		}
+	}
+	
+	public void imprimirBillete(String nombreTitular, int cantidadTickets) {
+		
+		System.out.println("");
+		System.out.printf("Su billete ha costado: %.2f€", saldoTotal);
+	}
+	
 	
 	
 	

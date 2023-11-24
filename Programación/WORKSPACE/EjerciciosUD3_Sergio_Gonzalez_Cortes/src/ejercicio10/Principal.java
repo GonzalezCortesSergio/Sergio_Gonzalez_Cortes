@@ -11,14 +11,14 @@ public class Principal {
 		int pasajeros;
 		int viajes;
 		String aux;
-		String contraseña;
-		String contraseñaCorrecta = "MSevilla!2023";
+		String contrasenya;
+		String contrasenyaCorrecta = "MSevilla!2023";
 		int opcion;
 		int opcionOperario;
 		double precioUnitario = 0.82;
 		double dineroAPagar;
-		Ticket t = null;
-		Maquina m = null;
+		Ticket t;
+		Maquina m;
 		
 		//Inicializar Scanner 
 		Scanner s = new Scanner(System.in);
@@ -86,9 +86,9 @@ public class Principal {
 									
 									System.out.println("Introduzca la contraseña");
 									
-									contraseña = s.nextLine();
+									contrasenya = s.nextLine();
 									
-									if (contraseña.equals(contraseñaCorrecta)) {
+									if (contrasenya.equals(contrasenyaCorrecta)) {
 										
 										System.out.println("Contraseña correcta; puede cambiar el precio unitario");
 										
@@ -108,7 +108,7 @@ public class Principal {
 						}while (opcionOperario != 1 && opcionOperario != 0);
 						t = new Ticket (nombre, pasajeros, viajes, precioUnitario); 
 						
-						m = new Maquina (t);
+						
 						
 						break;
 						
@@ -133,7 +133,7 @@ public class Principal {
 						
 					case 3:
 						
-						t.toString();
+						System.out.println(t.toString());
 						
 						break;
 						
