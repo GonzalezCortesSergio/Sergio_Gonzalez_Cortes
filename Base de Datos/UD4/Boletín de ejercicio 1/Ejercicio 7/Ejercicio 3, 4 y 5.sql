@@ -34,9 +34,13 @@ WHERE t.nombre IN ('Casa', 'Piso')
 	AND EXTRACT (month from fecha_operacion)
 		BETWEEN 07 AND 09 
 	AND i.provincia IN ('Huelva', 'Sevilla', 'Almería')
-	AND AGE (fecha_alta, fecha_operacion)
+	AND AGE (fecha_operacion, fecha_alta)
+	/*Para utilizar el AGE y que no salgan valores en negativo
+	es necesario poner primero el mayor valor y seguidamente
+	el menor (fecha_operacion es mayor que fecha_alta)*/
 		BETWEEN '35 day'::interval
 			AND '45 day'::interval
+	--AND fecha_operacion - fecha_alta BETWEEN 35 AND 45
 ORDER BY fecha_operacion DESC;
 
 
@@ -49,12 +53,15 @@ escrito de forma completa en inglés tenga entre 5 y 7
 caracteres.
 */
 
-SELECT ROUND (MAX (precio / superficie), 2) AS "maximo_precio_metro_cuadrado", ROUND (MIN (precio / superficie), 2) AS "minimo_precio_metro_cuadrado"
+SELECT ROUND (MAX (precio_final / superficie), 2) AS "maximo_precio_metro_cuadrado", ROUND (MIN (precio_final / superficie), 2) AS "minimo_precio_metro_cuadrado"
 FROM inmueble i 
 	JOIN tipo t ON (t.id_tipo = i.tipo_inmueble)
 	JOIN operacion o USING (id_inmueble)
 WHERE i.provincia ILIKE '%n%'
-	AND NOT t.nombre IN ('Piso', 'Casa')
+	AND t.nombre NOT IN ('Piso', 'Casa')
+	/*Cuidao con el uso de NOT IN; que tiene que ser "NOT IN",
+	no "NOT (columna) IN"*/
+	AND tipo_operacion = 'Venta'
 	AND (TO_CHAR (fecha_operacion, 'FMMonth') LIKE '_____'
 		 	OR TO_CHAR (fecha_operacion, 'FMMonth') LIKE '______'
 		 	OR TO_CHAR (fecha_operacion, 'FMMonth') LIKE '_______');
