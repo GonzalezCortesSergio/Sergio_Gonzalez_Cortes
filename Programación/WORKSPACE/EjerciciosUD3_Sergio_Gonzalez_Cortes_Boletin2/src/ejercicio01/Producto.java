@@ -95,7 +95,7 @@ public class Producto {
 		int cien = 100;
 		
 		
-		return (precioFabrica*porCosTransporte) /  cien;
+		return precioFabrica +((precioFabrica*porCosTransporte) /  cien);
 	}
 	
 	

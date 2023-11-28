@@ -12,7 +12,7 @@ public class Principal {
 		//Variables
 		
 		String aux, codigoProducto, nombreProducto;
-		double porCosTransporte, precioFabrica;
+		double porCosTransporte, precioFabrica, pvp;
 		int tam = 100, opcion, opcionFragil;
 		
 		//Instanciar Scanner
@@ -41,10 +41,12 @@ public class Principal {
 			System.out.println();
 			
 			System.out.println("""
+					-------------------------------------
 					Opción 1:	Agregar un producto
 					Opción 2:	Mostrar productos
-					Opción 3:	Obtener PVP
+					Opción 3:	Ganancia total
 					Opción 0:	Salir
+					-------------------------------------
 				
 					""");
 			
@@ -79,6 +81,8 @@ public class Principal {
 					t.agregarProducto(new Producto (precioFabrica, porCosTransporte, nombreProducto, 
 							codigoProducto, t.comprobarFragil(opcionFragil) ));
 					
+					System.out.printf("Usted lleva invertidos %.2f€", t.calcularCantidadInvertida());
+					
 					break;
 					
 				case 2:
@@ -86,13 +90,36 @@ public class Principal {
 					for (int i = 0; i < t.getNumProductos(); i++) {
 						
 						System.out.println(lista[i].toString());
+						System.out.println();
 					}
+					
+					break;
+					
+					
+				case 3:
+					
+					System.out.println("Diga porcentaje pvp");
+					aux = s.nextLine();
+					pvp = Double.parseDouble(aux);
+					t.calcularGanancias(pvp);
+					
+					break;
+					
+					
+				case 0:
+					
+					System.out.println("Saliendo...");
 					
 					break;
 					
 			}
 		
 		}while (opcion != 0);
+		
+		System.out.println("Gracias por utilizar el programa");
 	}
+	
+	
+	
 
 }
