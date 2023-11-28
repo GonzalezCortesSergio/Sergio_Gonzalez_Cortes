@@ -5,21 +5,21 @@ public class Producto {
 	//Atributos
 	
 	private double precioFabrica;
+	private double porCosTransporte;
 	private String nombreProducto;
 	private String codigoProducto;
-	private String seccionProducto;
 	private boolean fragil;
 	
 	
 	//Constructor
-	public Producto(double precioFabrica, String nombreProducto, String codigoProducto, String seccionProducto,
+	public Producto(double precioFabrica, double porCosTransporte, String nombreProducto, String codigoProducto,
 			boolean fragil) {
 		
 		
 		this.precioFabrica = precioFabrica;
+		this.porCosTransporte = porCosTransporte;
 		this.nombreProducto = nombreProducto;
 		this.codigoProducto = codigoProducto;
-		this.seccionProducto = seccionProducto;
 		this.fragil = fragil;
 	}
 
@@ -36,6 +36,14 @@ public class Producto {
 		this.precioFabrica = precioFabrica;
 	}
 
+	public double getPorCosTransporte () {
+		return porCosTransporte;
+	}
+	
+	public void setPorCosTransporte (double porCosTransporte) {
+		
+		this.porCosTransporte = porCosTransporte;
+	}
 
 	public String getNombreProducto() {
 		return nombreProducto;
@@ -56,17 +64,7 @@ public class Producto {
 		this.codigoProducto = codigoProducto;
 	}
 
-
-	public String getSeccionProducto() {
-		return seccionProducto;
-	}
-
-
-	public void setSeccionProducto(String seccionProducto) {
-		this.seccionProducto = seccionProducto;
-	}
-
-
+	
 	public boolean isFragil() {
 		return fragil;
 	}
@@ -85,14 +83,14 @@ public class Producto {
 	@Override
 	public String toString() {
 		return "Producto [precioFabrica=" + precioFabrica + ", nombreProducto=" + nombreProducto + ", codigoProducto="
-				+ codigoProducto + ", seccionProducto=" + seccionProducto + ", fragil=" + fragil + "]";
+				+ codigoProducto+ ", fragil=" + fragil + "]";
 	}
 	
 	
 	
 	//Métodos
 	
-	public double calcularPCoste (double porCosTransporte) {
+	public double calcularPCoste () {
 		
 		int cien = 100;
 		

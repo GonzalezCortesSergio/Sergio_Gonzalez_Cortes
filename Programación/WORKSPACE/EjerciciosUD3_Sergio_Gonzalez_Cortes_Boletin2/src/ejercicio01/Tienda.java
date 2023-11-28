@@ -51,6 +51,24 @@ public class Tienda {
 		
 	}
 	
+	public boolean comprobarFragil (int opcionFragil) {
+		
+		if (opcionFragil == 1) {
+			
+			return true;
+			
+		}
+		
+		else {
+			
+			return false;
+		}
+		
+		
+		
+		
+	}
+	
 	
 	
 	
