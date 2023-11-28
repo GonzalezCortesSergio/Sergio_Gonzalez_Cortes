@@ -4,25 +4,31 @@ Sevilla a lo largo del año 2019 (puedes investigar el uso
 de LIMIT para hacerlo)
 */
 
-SELECT *
+SELECT i.*, o.*
 FROM inmueble i
 	JOIN tipo t ON (i.tipo_inmueble = t.id_tipo)
 	JOIN operacion o USING (id_inmueble)
 WHERE i.tipo_operacion = 'Venta'
 	AND t.nombre = 'Piso'
-	AND EXTRACT (year from fecha_operacion) = 2019
+	AND EXTRACT (year from fecha_operacion) = 2021
+	AND provincia = 'Sevilla'
+
+ORDER BY precio_final DESC
 LIMIT 3;
+--Para usar el limit primero tengo que ordenar las tablas con ORDER BY
+
 
 /*
 2. Selecciona el precio medio de los alquileres en Málaga 
 en los meses de Julio y Agosto (da igual de qué año).
 */
 
-SELECT ROUND (AVG (precio_final), 2)
+SELECT ROUND (AVG (precio), 2)
 FROM inmueble i 
 	JOIN operacion USING (id_inmueble)
-WHERE (EXTRACT (month from fecha_operacion) = 07
-	OR EXTRACT (month from fecha_operacion) = 08)
+WHERE (EXTRACT (month from fecha_alta) = 07
+	OR EXTRACT (month from fecha_alta) = 08)
+	--EXTRACT (month from fecha_alta) IN (7,8)
 	AND i.provincia = 'Málaga'
 	AND i.tipo_operacion = 'Alquiler';
 	
@@ -31,15 +37,14 @@ WHERE (EXTRACT (month from fecha_operacion) = 07
 Córdoba en los últimos 3 meses del año 2019 o 2020.
 */
 
-SELECT *
+SELECT i.*, fecha_operacion
 FROM inmueble i 
 	JOIN operacion o USING (id_inmueble)
 WHERE i.provincia IN ('Jaén', 'Córdoba')
 	AND tipo_operacion = 'Venta'
-	AND ((EXTRACT (year from fecha_operacion) = 2019)
-		OR (EXTRACT (year from fecha_operacion) = 2020)
-		AND (EXTRACT (month from fecha_operacion ) BETWEEN 10 AND 12));
-		
+	AND EXTRACT (month from fecha_operacion) IN (10, 11, 12)
+	AND EXTRACT (year from fecha_operacion) IN (2021, 2022);
+		 
 /*
 4. Selecciona el precio medio de las ventas de Parking en 
 la provincia de Huelva para aquellas operaciones que se 
@@ -99,3 +104,25 @@ WHERE t.nombre = 'Casa'
 	AND i.provincia = 'Málaga'
 	AND EXTRACT (month from fecha_operacion) BETWEEN 06 AND 08
 ORDER BY precio_final DESC;
+
+
+
+
+SELECT ROUND (AVG (precio), 2)
+FROM inmueble i 
+	LEFT JOIN operacion o USING (id_inmueble)
+WHERE EXTRACT (month from fecha_alta) IN (7,8)
+	AND i.provincia = 'Málaga'
+	AND i.tipo_operacion = 'Alquiler'
+	AND o.id_inmueble IS NULL;
+	
+	
+SELECT i.*, fecha_operacion
+FROM inmueble i 
+	JOIN operacion o USING (id_inmueble)
+WHERE i.provincia IN ('Jaén', 'Córdoba')
+	AND tipo_operacion = 'Venta'
+	AND  TO_DATE (TO_CHAR (fecha_operacion ,'DD/MM'), 'DD/MM')
+				BETWEEN TO_DATE ('15/01', 'DD/MM')
+					AND
+					TO_DATE ('15/03', 'DD/MM');
