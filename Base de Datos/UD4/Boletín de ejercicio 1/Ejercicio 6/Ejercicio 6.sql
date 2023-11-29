@@ -138,3 +138,31 @@ WHERE make_date (EXTRACT (year from CURRENT_DATE)::int,
 				EXTRACT (month from fecha_operacion)::int,
 				EXTRACT (day from fecha_operacion)::int)
 				BETWEEN make_date (2023, 1, 15) AND make_date (2023, 3, 15);
+				
+				
+SELECT i.*, fecha_operacion
+FROM inmueble i JOIN operacion USING(id_inmueble)
+WHERE provincia IN ('Jaén','Córdoba')
+  AND tipo_operacion = 'Venta'
+  AND (
+      (
+        EXTRACT(day from fecha_operacion) BETWEEN 15 AND 31
+        AND
+        EXTRACT(month from fecha_operacion) = 1        
+    )
+      OR
+    (
+        EXTRACT(day from fecha_operacion) BETWEEN
+        1 AND
+            EXTRACT(day from (DATE_TRUNC('month',fecha_operacion)
+             + '1 mon'::interval - '1 day'::interval)::date)
+        AND
+        EXTRACT(month from fecha_operacion) = 2
+    )
+      OR
+    (
+        EXTRACT(day from fecha_operacion) BETWEEN 1 AND 15
+        AND
+        EXTRACT(month from fecha_operacion) = 3            
+    )    
+  );
