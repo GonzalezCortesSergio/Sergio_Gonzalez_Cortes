@@ -28,7 +28,7 @@ SELECT INITCAP (c.nombre), INITCAP(c.apellido1), INITCAP(c.apellido2)
 FROM cliente c 
 	JOIN reserva r USING (id_cliente)
 	JOIN vuelo v USING (id_vuelo)
-WHERE TO_CHAR (salida, 'ID') = '3'
+WHERE EXTRACT (isodow from v.salida) = 3
 	   AND AGE (v.salida::date, r.fecha_reserva::date) = '35 day'::interval
 	AND c.apellido2 ILIKE '____';
 
