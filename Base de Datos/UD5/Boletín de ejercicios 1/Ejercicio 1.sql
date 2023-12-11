@@ -36,13 +36,23 @@ oficina, mostrando el STREET_ADDRESS y dicho número; hay que
 ordenar la salida de mayor a menor.
 */
 
-SELECT street_address, department_name, COUNT (e.*) AS "numero_empleados"
+SELECT street_address, COUNT (*) AS "numero_empleados"
 FROM employees e
 	JOIN departments d USING (department_id)
 	JOIN locations l USING (location_id)
-GROUP BY street_address, department_name
+GROUP BY street_address
 ORDER BY numero_empleados DESC;
 
+/*
+Variante: Buscar departamento u oficina sin empleados
+*/
+
+SELECT COALESCE (department_name, 'Sin ubicación'), COUNT (employee_id) AS "numero_empleados"
+FROM employees e
+	FULL JOIN departments d USING (department_id)
+	FULL JOIN locations l USING (location_id)
+GROUP BY department_name
+ORDER BY numero_empleados DESC;
 
 /*
 4. Modificar la consulta anterior para que muestre las 
@@ -51,8 +61,8 @@ localizaciones que no tienen ningún empleado.
 
 SELECT street_address, department_name, COUNT (e.*) AS "numero_empleados"
 FROM employees e
-	JOIN departments d USING (department_id)
-	JOIN locations l USING (location_id)
+	FULL JOIN departments d USING (department_id)
+	FULL JOIN locations l USING (location_id)
 GROUP BY street_address, department_name
 ORDER BY numero_empleados DESC;
 
