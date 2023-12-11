@@ -4,8 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba 3</title>
+    <style>
+        
+        nav {
+            flex: 0 0 100%;
+            
+        }
+        nav ul a:hover{
+        
+            background-color: deeppink;
+            color: greenyellow;
+
+        }
+        section{
+
+            display: none;
+        }
+        section:target{
+            display: inherit;
+        }
+
+        main{
+
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
 </head>
 <body>
     
+    <header>
+        
+        <h1>El título</h1>
+    
+    </header>
+
+    <nav>
+
+        <ul>
+            
+            <a href="#"><li>Quienes somos</li></a>
+            <a href="#"><li>Qué hacemos</li></a>
+            <a href="#"><li>Información</li></a>
+            <a href="#"><li>Comprar</li></a>
+
+        </ul>
+    
+    </nav>
 </body>
 </html>
