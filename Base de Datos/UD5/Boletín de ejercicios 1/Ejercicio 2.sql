@@ -42,4 +42,23 @@ redondearse a dos decimales.
 */
 
 
+SELECT product_name, category_name
+FROM products p
+	JOIN categories c USING (category_id)
+	JOIN (SELECT ROUND ((AVG (unit_price)), 2) media_precio
+		  FROM products)
+
+
+/*
+5. Selecciona aquellos clientes (CUSTOMERS) para los que todos los 
+envíos que ha recibido (sí, todos) los haya transportado (SHIPPERS) 
+la empresa United Package.
+*/
+
+SELECT contact_name
+FROM customers c
+	JOIN orders o USING (customer_id)
+	FULL JOIN shippers s ON (o.ship_via = s.shipper_id)
+WHERE s.company_name = 'United Package'
+GROUP BY contact_name
 
