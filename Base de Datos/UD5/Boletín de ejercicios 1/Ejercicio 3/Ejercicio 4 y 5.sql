@@ -3,19 +3,23 @@
 con una duración menor. Debes realizarlo usando subconsultas.
 */
 
-SELECT salida.nombre AS "aeropuerto_salida", salida.ciudad AS "ciudad_salida", 
-llegada.nombre AS "aeropuerto_llegada", llegada.ciudad AS "ciudad_llegada"
+SELECT DISTINCT salida.nombre AS "aeropuerto_salida", salida.ciudad AS "ciudad_salida", 
+llegada.nombre AS "aeropuerto_llegada", llegada.ciudad AS "ciudad_llegada", age(llegada, salida)
 FROM vuelo
 	JOIN aeropuerto salida ON (salida.id_aeropuerto = desde)
 	JOIN aeropuerto llegada ON (llegada.id_aeropuerto = hasta)
-WHERE id_vuelo IN (
+WHERE age(llegada, salida) < ANY (
 
-	SELECT id_vuelo
+	SELECT DISTINCT age(llegada, salida) 
 	FROM vuelo
-	ORDER BY llegada - salida
+	ORDER BY age(llegada, salida)
 	LIMIT 10
 
-);
+)
+ORDER BY age(llegada, salida)
+LIMIT 10;
+
+
 
 
 /*

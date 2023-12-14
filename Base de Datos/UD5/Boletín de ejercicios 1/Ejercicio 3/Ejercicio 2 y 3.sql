@@ -28,9 +28,9 @@ SELECT DISTINCT v.*
 FROM vendedor v
 	JOIN operacion USING (id_vendedor)
 	JOIN inmueble USING (id_inmueble)
-WHERE tipo_inmueble IN (
+WHERE tipo_inmueble NOT IN (
 	
 	SELECT id_tipo
 	FROM tipo
-	WHERE nombre = 'Parking'
+	WHERE nombre ! 'Parking'
 )
