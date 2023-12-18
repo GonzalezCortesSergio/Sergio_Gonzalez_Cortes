@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba 7</title>
+    <style type="text/css">
+
+        div {
+
+            box-sizing: border-box;
+            width: 250px;
+            height: 50px;
+            padding: 10px;
+            font-size: 20pt;
+            text-align: center;
+            background: greenyellow;
+
+            transition: transform 1s;
+            position: relative;
+            top: 50px;
+            left: 250px;
+
+            /*backface-visibility: hidden;*/
+            transform-style: preserve-3d;
+            perspective: 200px;
+        }
+
+        div:hover{
+
+
+            /*transform: translate(50px);*/
+            /*transform: rotate(360deg);*/
+            /*transform: scale(2);*/
+            /*transform: skewX(180deg);*/
+            transform: rotateY(300deg);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Caja
+    </div>
+</body>
+</html>
