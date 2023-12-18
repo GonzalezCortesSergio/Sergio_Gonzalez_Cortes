@@ -5,6 +5,7 @@ subconsulta dentro de otra y, en la interior, usar una subconsulta
 en el select :S (o bien usar WITH)
 */
 
+--Todo mal
 SELECT origen.nombre, AVG ((
 	SELECT COUNT (c.*)
 	FROM vuelo v
@@ -19,6 +20,35 @@ FROM vuelo v
 	JOIN cliente USING (id_cliente)
 GROUP BY origen.nombre;
 
+--Ahora bien hecho
+
+SELECT ciudad, ROUND (AVG (prc), 2) AS "media_ocupacion"
+FROM (
+SELECT a.ciudad AS "ciudad", id_vuelo, max_pasajeros, COUNT (*), ((COUNT (*) / max_pasajeros::numeric) * 100) AS "prc"
+FROM vuelo 
+	JOIN avion  USING (id_avion)
+	JOIN aeropuerto a ON (desde = id_aeropuerto)
+	JOIN reserva USING (id_vuelo)
+GROUP BY a.ciudad, id_vuelo, max_pasajeros
+)
+GROUP BY ciudad;
+
+--Ahora con WITH
+
+WITH personas_por_vuelo AS (
+	SElECT id_vuelo, id_avion, desde, COUNT (*) AS "ocupacion"
+	FROM vuelo
+		JOIN reserva USING (id_vuelo)
+	GROUP BY id_vuelo, id_avion, desde
+), porcentaje_ocupacion AS (
+	SELECT id_vuelo, desde, (ocupacion / max_pasajeros::numeric) * 100 AS "porcentaje"
+	FROM personas_por_vuelo 
+		JOIN avion USING (id_avion)
+)
+SELECT ciudad, ROUND (AVG (porcentaje), 2)
+FROM porcentaje_ocupacion
+	JOIN aeropuerto ON (id_aeropuerto = desde)
+GROUP BY ciudad
 
 /*
 2. Selecciona el tráfico de pasajeros (es decir, personas 
@@ -26,6 +56,8 @@ que han llegado en un vuelo o personas que han salido en
 un vuelo) agrupado por mes (independiente del año) y 
 aeropuerto. 
 */
+
+--Todo mal
 
 SELECT origen.nombre, num_pasajeros_salida, destino.nombre, num_pasajeros_llegada
 
@@ -46,6 +78,23 @@ FROM vuelo
 GROUP BY llegada
 ) t;
 
+--Ahora bien
+
+SELECT ciudad, SUM (trafico)
+FROM (
+SELECT ciudad, COUNT (*) AS "trafico"
+FROM reserva
+	JOIN vuelo USING (id_vuelo)
+	JOIN aeropuerto ON (hasta = id_aeropuerto)
+GROUP BY ciudad, EXTRACT (month from llegada::date)
+UNION
+SELECT ciudad, COUNT (*) AS "trafico"
+FROM reserva
+	JOIN vuelo USING (id_vuelo)
+	JOIN aeropuerto ON (desde = id_aeropuerto)
+GROUP BY ciudad, EXTRACT (month from salida::date)
+)
+GROUP BY ciudad;
 
 /*
 3. Suponiendo que el 30% del precio de cada billete son 
