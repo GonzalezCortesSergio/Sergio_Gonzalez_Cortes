@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones</title>
+    <style type="text/css">
+
+        @keyframes tembleque{
+
+        0%{
+            transform:  rotate(0deg);
+        }
+        33%{
+
+            transform: rotate(10deg);
+        }
+        66%{
+
+            transform: rotate(0deg);
+        }
+
+        100%{
+            transform: rotate(-10deg);
+        }
+            
+        }
+        div{
+            box-sizing: border-box;
+            width: 250px;
+            height: 50px;
+            padding: 10px;
+            font-size: 20pt;
+            text-align: center;
+            background: greenyellow;
+            position: relative;
+            margin-top: 5px;
+
+            animation-name: tembleque;
+            animation-duration: 0.01s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+            animation-play-state: paused;
+        }
+
+        div:hover{
+            animation-play-state: running;
+        }
+    </style>
+</head>
+<body>
+    <div>Una caja</div>
+</body>
+</html>
