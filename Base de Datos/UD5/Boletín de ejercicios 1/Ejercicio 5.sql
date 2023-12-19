@@ -103,8 +103,57 @@ que más rendimiento económico da? Es decir, ¿en qué trayecto
 estamos ganando más dinero? ¿Y con el que menos? Lo puedes 
 hacer en consultas diferentes usando WITH
 */
+WITH rendimiento_por_trayecto AS (
+	SELECT s.ciudad, ll.ciudad, 
+		ROUND (0.3 * SUM (precio * (1 - (COALESCE (descuento, 0) / 100.0))), 2) AS "rendimiento"
+	FROM vuelo
+		JOIN reserva USING (id_vuelo)
+		JOIN aeropuerto s ON (desde = s.id_aeropuerto)
+		JOIN aeropuerto ll ON (hasta = ll.id_aeropuerto)
+	GROUP BY s.ciudad, ll.ciudad
+), rendimiento_maximo AS (
+	SELECT MAX (rendimiento) AS "maximo"
+	FROM rendimiento_por_trayecto
+)
+SELECT *
+FROM rendimiento_por_trayecto
+WHERE rendimiento = (
+	SELECT maximo
+	FROM rendimiento_maximo
+);
 
+--También selecciona el que tenga el menor rendimiento
 
+WITH rendimiento_por_trayecto AS (
+	SELECT s.ciudad, ll.ciudad, 
+		ROUND (0.3 * SUM (precio * (1 - (COALESCE (descuento, 0) / 100.0))), 2) AS "rendimiento"
+	FROM vuelo
+		JOIN reserva USING (id_vuelo)
+		JOIN aeropuerto s ON (desde = s.id_aeropuerto)
+		JOIN aeropuerto ll ON (hasta = ll.id_aeropuerto)
+	GROUP BY s.ciudad, ll.ciudad
+), rendimiento_maximo AS (
+	SELECT MAX (rendimiento) AS "maximo"
+	FROM rendimiento_por_trayecto
+), rendimiento_minimo AS (
+	SELECT MIN (rendimiento) AS "minimo"
+	FROM rendimiento_por_trayecto
+)
+SELECT *, 'Max'
+FROM rendimiento_por_trayecto
+WHERE rendimiento = (
+	SELECT maximo
+	FROM rendimiento_maximo
+)
+UNION
+	
+SELECT *, 'Min'
+FROM rendimiento_por_trayecto
+WHERE rendimiento = (
+	SELECT minimo
+	FROM rendimiento_minimo
+
+);
 
 /*
 4. Seleccionar el nombre y apellidos de los clientes que
@@ -112,15 +161,16 @@ no han hecho ninguna reserva para un vuelo que salga en
 el tercer trimestre desde Sevilla.
 */
 
-SELECT c.nombre, c.apellido1, c.apellido2
+SELECT DISTINCT c.nombre, c.apellido1, c.apellido2
 FROM cliente c
 	JOIN reserva r USING (id_cliente)
-WHERE r.id_vuelo NOT IN (
-	SELECT id_vuelo
-	FROM vuelo
-		JOIN aeropuerto origen ON (origen.id_aeropuerto = desde)
+WHERE id_cliente NOT IN (
+	SELECT id_cliente
+	FROM reserva
+		JOIN vuelo USING (id_vuelo)
+		JOIN aeropuerto ON (desde = id_aeropuerto)
 	WHERE EXTRACT (quarter from salida::date) = 3
-		AND origen.ciudad = 'Sevilla'
+		AND ciudad = 'Sevilla'
 );
 
 /*
