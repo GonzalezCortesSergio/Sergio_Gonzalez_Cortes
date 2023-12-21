@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú 2</title>
+    <style type="text/css">
+        *{
+
+            box-sizing: border-box;
+        }
+        body{
+
+            background-color: rgba(224,224,224,255);
+        }
+
+        nav{
+
+            display: flex;
+            list-style-type: none;
+            border: solid black 1px;
+            border-radius: 30px;
+            height: 50px;
+            color: rgba(80,80,80,255);
+            position: relative;
+            top: 50px;
+           
+            
+           
+        }
+        nav>li{
+
+            width: 100%;
+            margin: 0 auto;
+            padding-left: 6%;
+            padding-top: 0.8%;
+            border-right: solid black 1px;
+            background-image: url('./fondo-geometrico-azul-rojo.jpg');
+            
+            
+        }
+
+        nav>li:first-child{
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+        }
+
+        nav>li:last-child{
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        nav>li:hover{
+
+            background-position: right;
+            color: white;
+                      
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <li>HOME</li>
+        <li>SERVICES</li>
+        <li>PORTFOLIO</li>
+        <li>ABOUT</li>
+        <li>BLOG</li>
+        <li>CONTACT</li>
+    </nav>
+</body>
+</html>
