@@ -183,9 +183,18 @@ cuadrado de las operaciones de alquiler que ha realizado ese vendedor
 en ese día de la semana.
 */
 	
-SELECT nombre, EXTRACT (isodow from fecha_operacion)
+SELECT nombre, EXTRACT (isodow from fecha_operacion), ROUND ((COUNT (*)::numeric / 
+(
+	SELECT COUNT (*)
+	FROM inmueble 
+		JOIN operacion o2 USING (id_inmueble)
+	WHERE tipo_operacion = 'Alquiler'
+		AND o1.id_vendedor = o2.id_vendedor
+	
+) * 100) , 2), ROUND (AVG (precio_final / superficie), 2)
 FROM vendedor v
-	JOIN operacion USING (id_vendedor)
+	JOIN operacion o1 USING (id_vendedor)
 	JOIN inmueble USING (id_inmueble)
 WHERE tipo_operacion = 'Alquiler'
 	AND EXTRACT (isodow from fecha_operacion) != 7
+GROUP BY nombre, o1.id_vendedor, EXTRACT (isodow from fecha_operacion);
