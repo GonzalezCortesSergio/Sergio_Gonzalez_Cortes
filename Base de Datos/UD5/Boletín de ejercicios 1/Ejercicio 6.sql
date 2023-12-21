@@ -11,6 +11,7 @@ FROM vendedor v
 	JOIN inmueble i USING (id_inmueble)
 	JOIN tipo t ON (id_tipo = tipo_inmueble)
 WHERE t.nombre IN ('Piso', 'Casa')
+	AND tipo_operacion = 'Venta'
 GROUP BY v.nombre, i.provincia;
 
 /*
@@ -37,6 +38,48 @@ WHERE t.nombre = 'Local'
 	)
 GROUP BY i.provincia;
 
+
+
+--Ahora bien hecho 
+
+SELECT provincia, SUM (precio_final)
+FROM inmueble i1
+	JOIN operacion USING (id_inmueble)
+	JOIN tipo ON (tipo_inmueble = id_tipo)
+WHERE tipo.nombre = 'Local'
+	AND (precio_final / superficie) > (
+		SELECT AVG (precio_final / superficie)
+		FROM inmueble i2
+			JOIN operacion USING (id_inmueble)
+			JOIN tipo ON (tipo_inmueble = id_tipo)
+		WHERE tipo.nombre = 'Local'
+			AND i1.provincia = i2.provincia
+			AND i1.tipo_operacion = i2.tipo_operacion
+	)
+GROUP BY provincia;
+
+--Otra versión menos optimizada
+
+SELECT provincia, SUM (precio_final)
+FROM inmueble i1
+	JOIN operacion USING (id_inmueble)
+	JOIN tipo ON (tipo_inmueble = id_tipo)
+WHERE tipo.nombre = 'Local'
+	AND precio_final > (
+		SELECT AVG (precio_final / superficie) * (
+			SELECT superficie
+			FROM inmueble i3
+			WHERE i3.id_inmueble = i1.id_inmueble
+		)
+		FROM inmueble i2
+			JOIN operacion USING (id_inmueble)
+			JOIN tipo ON (tipo_inmueble = id_tipo)
+		WHERE tipo.nombre = 'Local'
+			AND i1.provincia = i2.provincia
+			AND i1.tipo_operacion = i2.tipo_operacion
+	)
+GROUP BY provincia;
+
 /*
 3. Selecciona la media de pisos vendidos al día que se han 
 vendido en cada provincia. Es decir, debes calcular primero 
@@ -54,9 +97,10 @@ WITH num_pisos_por_provincia AS (
 		AND tipo_operacion = 'Venta'
 	GROUP BY TO_CHAR (fecha_operacion, 'Day'), provincia
 )
-SELECT dia, provincia, ROUND (AVG (num_pisos), 2) AS "media_num_pisos"
+--Ojo cuidado, que te has equivocado tomando en cuenta los días y no deberías (fua pareado)
+SELECT provincia, ROUND (AVG (num_pisos), 2) AS "media_num_pisos"
 	FROM num_pisos_por_provincia
-	GROUP BY dia,provincia;
+	GROUP BY provincia;
 	
 /*
 4. Selecciona el cliente que ha comprado más barato cada tipo de 
@@ -75,12 +119,47 @@ WHERE tipo_operacion = 'Venta'
 ORDER BY precio_final
 LIMIT 3;
 
+--Ahora bien hecho
+
+SELECT c.nombre, provincia, fecha_operacion, precio_final, t.nombre
+FROM comprador c
+	JOIN operacion USING (id_cliente)
+	JOIN inmueble i1 USING (id_inmueble)
+	JOIN tipo t ON (t.id_tipo = tipo_inmueble)
+WHERE tipo_operacion = 'Venta'
+	AND precio_final <= ALL (
+		SELECT precio_final
+		FROM inmueble i2
+			JOIN operacion USING (id_inmueble)
+		WHERE tipo_operacion = 'Venta'
+			AND i2.tipo_inmueble = i1.tipo_inmueble
+);
+
+--Segunda pregunta del apartado
+
+SELECT c.nombre, provincia, fecha_operacion, precio_final, t.nombre
+FROM comprador c
+	JOIN operacion USING (id_cliente)
+	JOIN inmueble i1 USING (id_inmueble)
+	JOIN tipo t ON (t.id_tipo = tipo_inmueble)
+WHERE tipo_operacion = 'Venta'
+	AND precio_final <=  (
+		SELECT precio_final
+		FROM inmueble i2
+			JOIN operacion USING (id_inmueble)
+		WHERE tipo_operacion = 'Venta'
+			AND i2.tipo_inmueble = i1.tipo_inmueble
+		ORDER BY precio_final
+		LIMIT 1 OFFSET 2
+)
+ORDER BY provincia, precio_final;
+
 /*
 5. De entre todos los clientes que han comprado un piso en Sevilla, 
 selecciona a los que no han realizado ninguna compra en fin de semana.
 */
 
-SELECT c.nombre
+SELECT *
 FROM comprador c
 	JOIN operacion USING (id_cliente)
 	JOIN inmueble USING (id_inmueble)
@@ -104,4 +183,9 @@ cuadrado de las operaciones de alquiler que ha realizado ese vendedor
 en ese día de la semana.
 */
 	
-WITH 
+SELECT nombre, EXTRACT (isodow from fecha_operacion)
+FROM vendedor v
+	JOIN operacion USING (id_vendedor)
+	JOIN inmueble USING (id_inmueble)
+WHERE tipo_operacion = 'Alquiler'
+	AND EXTRACT (isodow from fecha_operacion) != 7
