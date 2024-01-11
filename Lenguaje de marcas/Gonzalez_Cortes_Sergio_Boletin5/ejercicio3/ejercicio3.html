@@ -14,15 +14,47 @@
             font-size: 10pt;
             background-color: rgba(0,0,0,255);
             color: rgba(204,204,204,255);
-            padding-left: 24%;
+            padding-left: 20%;
         }
         nav ul{
             list-style-type: none;
+            width: 100%;
+           
+        }
+
+        nav>ul {
+
             display: flex;
         }
         nav li{
            
             margin: 1%;
+        }
+       
+        nav>ul>li{
+
+            flex: 0 0 auto;
+            padding: 0px;
+        }
+        nav>ul>li>ul>li{
+
+            height: 0px;
+            padding: 0px;
+            overflow: hidden;
+            transition: all 0.5s;
+
+        }
+
+        nav>ul>li:hover>ul>li{
+            height: inherit;
+            padding: 10px;
+            font-size: 25pt;
+            font-weight: bold;
+        }
+        
+        nav>ul>li:hover>ul>li.Shop{
+            font-size: 15pt;
+            color: rgba(255, 255, 255, 0.4);
         }
     </style>
 </head>
@@ -30,8 +62,24 @@
     <nav>
         <ul>
             <li><i class="bi bi-apple"></i></li>
-            <li>Store</li>
-            <li>Mac</li>
+            <li>Store
+                <ul>
+                   
+                    <li class="Shop">Shop</li>
+                    <li>Shop the Latest</li>
+                    <li>Mac</li>
+                    <li>iPad</li>
+                    <li>iPhone</li>
+                    <li>Apple Watch</li>
+                    <li>Accesories</li>
+                
+                </ul>  
+            </li>
+            <li>
+                <ul>Mac
+
+                </ul>
+            </li>
             <li>iPad</li>
             <li>iPhone</li>
             <li>Watch</li>
