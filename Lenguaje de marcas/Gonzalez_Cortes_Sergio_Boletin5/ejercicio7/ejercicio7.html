@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+
+        nav{
+            background-color: black;
+            color: white;
+        }
+
+        nav>ul{
+
+            display: flex;
+            list-style-type: none;
+            margin: 0 auto;
+            padding: 10px;
+            text-align: center;
+            
+        }
+
+        nav>ul>li{
+
+            width: 100%;
+        }
+
+        nav>ul>li>ul{
+            height: 0px;
+            overflow: hidden;
+            list-style-type: none;
+            transition: all 0.5s;
+        }
+
+        nav>ul>li:hover>ul{
+            height: 100px;
+            overflow: initial;
+            
+        }
+        nav>ul>li:hover>ul>li{
+            background-color: white;
+            color: black;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>HOME
+                <ul>
+                    <li>Opc1</li>
+                    <li>Opc2</li>
+                    <li>Opc3</li>
+                    <li>Opc4</li>
+                    <li>Opc5</li>
+                </ul>
+            </li>
+            <li>ABOUT
+                <ul>
+                    <li>Opc1</li>
+                    <li>Opc2</li>
+                    <li>Opc3</li>
+                    <li>Opc4</li>
+                    <li>Opc5</li>
+                </ul>
+            </li>
+            <li>PORTFOLIO
+                <ul>
+                    <li>Opc1</li>
+                    <li>Opc2</li>
+                    <li>Opc3</li>
+                    <li>Opc4</li>
+                    <li>Opc5</li>
+                </ul>
+            </li>
+            <li>BLOG
+                <ul>
+                    <li>Opc1</li>
+                    <li>Opc2</li>
+                    <li>Opc3</li>
+                    <li>Opc4</li>
+                    <li>Opc5</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

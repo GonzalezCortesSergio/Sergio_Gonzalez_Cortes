@@ -1,30 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style type="text/css">
+        *{
+            box-sizing: border-box;
+        }
+        body{
 
+            background-color: rgba(133,210,215,255);
+        }
         nav{
+            width: 85%;
+            margin: 0 auto;
+        }
+        nav ul{
+            
+            color: rgba(169,223,226,255);
+            width: 100%;
+
             list-style-type: none;
+            padding-left: 0px;
+            text-align: center;
+        }
+        
+        nav>ul{
+            display: flex;
+        }
+        nav>ul>li{
             background-color: rgba(64,189,195,255);
-            color: rgba(247,248,250,255);
+            flex: 1 1 auto;
+            padding: 10px;
+            border: 1px solid rgba(133,210,215,255);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        nav>ul>li>ul>li{
+
+            height: 0px;
+            padding: 0px;
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+
+        nav>ul>li:hover{
+        
+            background-color: rgb(255, 255, 255);
+            color: rgba(165,165,165,255);        
+        }
+        nav>ul>li:hover>ul>li{
+        
+            height: inherit;
+            padding: 10px;
+            background-color: rgb(255, 255, 255);
+            color: rgba(165,165,165,255); 
         }
 
     </style>
 </head>
+
 <body>
     <nav>
-        
-        <li>Inicio</li>
-        <li>Quiénes somos</li>
-        <li>Dónde estamos</li>
-        <li>Noticias</li>
-        <li>Descargas</li>
-        <li>Galería de fotos</li>
-        <li>Contacto</li>
+        <ul>
+            <li>Inicio
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, aliquid deleniti perferendis
+                        numquam veniam, porro nulla ab, nam repellendus placeat maxime corporis quas! Error
+                        necessitatibus qui corrupti. Placeat, illo fugit!</li>
+                </ul>
+            </li>
+            <li>Quiénes somos
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, aliquid deleniti perferendis
+                        numquam veniam, porro nulla ab, nam repellendus placeat maxime corporis quas! Error
+                        necessitatibus qui corrupti. Placeat, illo fugit!</li>
+                </ul>
+            </li>
+            <li>Dónde estamos
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, aliquid deleniti perferendis
+                        numquam veniam, porro nulla ab, nam repellendus placeat maxime corporis quas! Error
+                        necessitatibus qui corrupti. Placeat, illo fugit!</li>
+                </ul>
+            </li>
+            <li>Noticias
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, aliquid deleniti perferendis
+                        numquam veniam, porro nulla ab, nam repellendus placeat maxime corporis quas! Error
+                        necessitatibus qui corrupti. Placeat, illo fugit!</li>
+                </ul>
+            </li>
+            <li>Descargas
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, aliquid deleniti perferendis
+                        numquam veniam, porro nulla ab, nam repellendus placeat maxime corporis quas! Error
+                        necessitatibus qui corrupti. Placeat, illo fugit!</li>
+                </ul>
+            </li>
+            <li>Galería de fotos
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, aliquid deleniti perferendis
+                        numquam veniam, porro nulla ab, nam repellendus placeat maxime corporis quas! Error
+                        necessitatibus qui corrupti. Placeat, illo fugit!</li>
+                </ul>
+            </li>
+            <li>Contacto
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, aliquid deleniti perferendis
+                        numquam veniam, porro nulla ab, nam repellendus placeat maxime corporis quas! Error
+                        necessitatibus qui corrupti. Placeat, illo fugit!</li>
+                </ul>
+            </li>
+        </ul>
 
     </nav>
 </body>
+
 </html>
