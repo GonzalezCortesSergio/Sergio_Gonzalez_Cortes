@@ -2,18 +2,18 @@ CREATE DATABASE teatro;
 
 
 CREATE TABLE Invitado (
-	NroInvitado	INTEGER NOT NULL,
-	Nombre	VARCHAR(20) NOT NULL,
-	Categoria VARCHAR(20) NOT NULL,
-	Origen	VARCHAR(50) NOT NULL,
+	NroInvitado		INTEGER NOT NULL,
+	Nombre			VARCHAR(20) NOT NULL,
+	Categoria 		VARCHAR(20) NOT NULL,
+	Origen			VARCHAR(50) NOT NULL,
 	CONSTRAINT pk_invitado
 		PRIMARY KEY (NroInvitado)
 );
 
 CREATE TABLE Teatro (
-	CodTeat	INTEGER NOT NULL,
-	Nombre	VARCHAR(50),
-	Direccion	VARCHAR(50),
+	CodTeat			INTEGER NOT NULL,
+	Nombre			VARCHAR(50),
+	Direccion		VARCHAR(50),
 	CantAsientos	INTEGER NOT NULL,
 	CONSTRAINT pk_teatro
 		PRIMARY KEY (CodTeat),
@@ -22,41 +22,45 @@ CREATE TABLE Teatro (
 );
 
 CREATE TABLE Obra (
-	CodObra	INTEGER NOT NULL,
-	NombreObra	VARCHAR(15),
-	Autor	VARCHAR(40),
+	CodObra			INTEGER NOT NULL,
+	NombreObra		VARCHAR(400),
+	Autor			VARCHAR(40),
 	CONSTRAINT pk_obra
 		PRIMARY KEY (CodObra)
+	
+	/*
+	Las FK no pueden ser NUNCA de tipo (SMALL/BIG)SERIAL
+	*/
 );
 
 CREATE TABLE Exhibe (
-	CodTeat	INTEGER NOT NULL,
-	Fecha	DATE NOT NULL,
-	CodObra	INTEGER NOT NULL,
+	CodTeat		INTEGER NOT NULL,
+	Fecha		DATE NOT NULL,
+	CodObra		INTEGER NOT NULL,
 	CONSTRAINT pk_exhibe
 		PRIMARY KEY (CodTeat, Fecha)
 );
 
 CREATE TABLE Tipo_Asiento ( 
-	Tipo	INTEGER NOT NULL,
-	Nombre	VARCHAR(25),
-	Descripcion	TEXT,
+	Tipo			INTEGER NOT NULL,
+	Nombre			VARCHAR(25),
+	Descripcion		TEXT,
 	CONSTRAINT pk_asiento
 		PRIMARY KEY (Tipo)
 );
 
 CREATE TABLE Asiento_Tipo (
-	NroAsiento	INTEGER NOT NULL,
-	Tipo	INTEGER NOT NULL,
+	NroAsiento		INTEGER NOT NULL,
+	Tipo			INTEGER NOT NULL,
 	CONSTRAINT pk_asiento_tipo
 		PRIMARY KEY (NroAsiento)
 );
 
 CREATE TABLE Precio (
-	CodTeat	INTEGER NOT NULL,
-	Fecha	DATE NOT NULL,
-	Tipo	INTEGER NOT NULL,
-	Precio	NUMERIC,
+	CodTeat		INTEGER NOT NULL,
+	Fecha		DATE NOT NULL,
+	Tipo		INTEGER NOT NULL,
+	Precio		NUMERIC,
 	CONSTRAINT pk_precio
 		PRIMARY KEY (CodTeat, Fecha, Tipo),
 	CONSTRAINT ck_precio_positivo
@@ -64,10 +68,10 @@ CREATE TABLE Precio (
 );
 
 CREATE TABLE Entrada (
-	CodTeat	INTEGER NOT NULL,
-	Fecha	DATE NOT NULL,
-	NroAsiento	INTEGER NOT NULL,
-	NroInvit	INTEGER NOT NULL,
+	CodTeat			INTEGER NOT NULL,
+	Fecha			DATE NOT NULL,
+	NroAsiento		INTEGER NOT NULL,
+	NroInvit		INTEGER NOT NULL,
 	CONSTRAINT pk_entrada
 		PRIMARY KEY (CodTeat, Fecha, NroAsiento)
 );
