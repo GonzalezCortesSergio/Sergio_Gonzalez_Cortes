@@ -6,18 +6,59 @@
     <title>Panel de control</title>
     <style type="text/css">
 
-        #primero{
+        body{
+
+            background-color: rgba(142, 20, 40, 0.413);
+        }
+        nav{
+            list-style-type: none;
             
-            height: 50px;
+        }
+        nav>li{
+            background-image: url(./DashIcons.png);
+            width: 70px;
+            height: 65px;
+            background-repeat: no-repeat;
+            background-color: white;
+
+        }
+        
+        nav>li:hover{
+
+            background-color: aliceblue;
+        }
+
+        .primero{
+            
+            
+            background-position-y: 0px;
+
+        }
+        .segundo{
+            background-position-y: -60px;
+        }
+        .tercero{
+
+            background-position-y: -110px;
+        }
+
+        .cuarto{
+            background-position-y: -170px;
+        }
+
+        .quinto{
+            background-position-y: -230px;
         }
         
     </style>
 </head>
 <body>
-    <div id="primero"><img src="./DashIcons.jpg" alt=""></div>
-    <div id="segundo"><img src="./DashIcons.jpg" alt=""></div>
-    <div id="tercero"><img src="./DashIcons.jpg" alt=""></div>
-    <div id="cuarto"><img src="./DashIcons.jpg" alt=""></div>
-    <div id="quinto"><img src="./DashIcons.jpg" alt=""></div>
+    <nav>
+        <li class="primero"></li>
+        <li class="segundo"></li>
+        <li class="tercero"></li>
+        <li class="cuarto"></li>
+        <li class="quinto"></li>
+    </nav>
 </body>
 </html>
