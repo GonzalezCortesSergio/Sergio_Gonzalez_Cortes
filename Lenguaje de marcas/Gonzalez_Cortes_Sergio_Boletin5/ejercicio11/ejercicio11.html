@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj</title>
+    <style type="text/css">
+
+        @keyframes girar {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+        body{
+            background-color: black;
+        }
+
+        .disco{
+
+            background-color: white;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: relative;
+            top: 50px;
+            left: 150px;
+            animation: girar 60s linear infinite;
+            animation-play-state: paused;
+        }
+
+        .aguja {
+
+            width: 10px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 100px;
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        .disco:hover{
+
+            animation-play-state: running;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="disco">
+        <div class="aguja"></div>
+    </div>
+</body>
+</html>
