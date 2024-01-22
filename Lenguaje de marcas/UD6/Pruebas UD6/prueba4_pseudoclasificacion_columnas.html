@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semántica correcta</title>
+    <style type="text/css">
+        table{
+            border: solid 3px black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td{
+            border: solid 3px black;
+        }
+
+        tr:nth-child(odd) {
+            background-color: cornflowerblue;
+        }
+        tr:nth-child(even) {
+            background-color: greenyellow;
+        }
+        caption{
+            background-color: blanchedalmond;
+            
+        }
+        
+        tr>td:nth-child(3) {
+
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <table summary="Tabla con canciones puntuadas por el autor">
+        <thead>
+            <tr>
+                <th colspan="3">Clasificación de canciones</th>
+            </tr>
+            <tr>
+                <th>Canción</th>
+                <th>Autor</th>
+                <th>Puntuación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Malamente</td>
+                <td>Rosalía</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>En Un Mercedes Blanco</td>
+                <td>Kiko Veneno</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>La noche de anoche</td>
+                <td>Bad Bunny</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>El aire de la calle</td>
+                <td>Los delicuentes</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">NOTA: La puntuación es totalmente subjetiva</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
