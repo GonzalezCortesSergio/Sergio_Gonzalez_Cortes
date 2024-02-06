@@ -5,15 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablero ajedrez</title>
     <style type="text/css">
+
+        *{
+
+            box-sizing: border-box;
+        }
+        table {
+
+            margin: 0 auto;
+            width: 25%;
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        th{
+
+            font-weight: 500;
+        }
+        
         th, td{
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
+            font-size: 20pt;  
         }
 
 
         thead{
             background-color: white;
         }
+
+
+        thead>tr>th{
+
+            background-color: white;
+        }
+
+        tbody>tr:nth-child(2n-1)>td:nth-child(2n) {
+            background-color: rgba(255,206,158,255);
+        }
+
+        tbody>tr:nth-child(2n)>td:nth-child(2n+1) {
+
+            background-color: rgba(255,206,158,255);
+        }
+
+        tbody>tr:nth-child(2n-1)>td:nth-child(2n+1) {
+
+            background-color: rgba(209,139,71,255);
+        }
+
+        tbody>tr:nth-child(2n)>td:nth-child(2n) {
+
+            background-color: rgba(209,139,71,255);
+        }
+
+        tbody>tr:nth-child(2n-1)>td:first-child,tbody>tr:nth-child(2n)>td:first-child, tbody>tr:nth-child(2n)>td:last-child, tbody>tr:nth-child(2n-1)>td:last-child{
+
+            background-color: white;
+        }
+
+        
     </style>
 </head>
 <body>
@@ -34,30 +86,39 @@
         </thead>
         <tbody>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>8</td>
+                <td>&#9820;</td>
+                <td>&#9822;</td>
+                <td>&#9821;</td>
+                <td>&#9819;</td>
+                <td>&#9818;</td>
+                <td>&#9821;</td>
+                <td>&#9822;</td>
+                <td>&#9820;</td>
+                <td>8</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>7</td>
+                <td>&#9823;
+                </td>
+                <td>&#9823;
+                </td>
+                <td>&#9823;
+                </td>
+                <td>&#9823;
+                </td>
+                <td>&#9823;
+                </td>
+                <td>&#9823;
+                </td>
+                <td>&#9823;
+                </td>
+                <td>&#9823;
+                </td>
+                <td>7</td>
             </tr>
             <tr>
+                <td>6</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -66,10 +127,10 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td>6</td>
             </tr>
             <tr>
+                <td>5</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -78,10 +139,10 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td>5</td>
             </tr>
             <tr>
+                <td>4</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -90,10 +151,10 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td>4</td>
             </tr>
             <tr>
+                <td>3</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -102,36 +163,64 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td>3</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>2</td>
+                <td>&#9817;
+                </td>
+                <td>&#9817;
+                </td>
+                <td>&#9817;
+                </td>
+                <td>&#9817;
+                </td>
+                <td>&#9817;
+                </td>
+                <td>&#9817;
+                </td>
+                <td>&#9817;
+                </td>
+                <td>&#9817;
+                </td>
+                <td>2</td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>1</td>
+                <td>&#9814;
+                </td>
+                <td>&#9816;
+                </td>
+                <td>&#9815;
+                </td>
+                <td>&#9813;
+                </td>
+                <td>&#9812;
+                </td>
+                <td>&#9815;
+                </td>
+                <td>&#9816;
+                </td>
+                <td>&#9814;
+                </td>
+                <td>1</td>
             </tr>
             
         </tbody>
-        <tfoot></tfoot>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+                <th>d</th>
+                <th>e</th>
+                <th>f</th>
+                <th>g</th>
+                <th>h</th>
+                <th></th>
+            </tr>
+        </tfoot>
     </table>
 </body>
 </html>
