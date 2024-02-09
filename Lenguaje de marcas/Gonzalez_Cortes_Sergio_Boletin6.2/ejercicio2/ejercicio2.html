@@ -6,30 +6,75 @@
     <title>Formulario de foro</title>
     <style type="text/css">
 
+        *{
+
+            box-sizing: border-box;
+        }
+
+      
+
+        label.bloque {
+
+            display: block;
+            margin: 20px;
+            
+        }
+
+        input{
+
+            margin-left: 35px;
+            
+        }
+
     </style>
 </head>
 <body>
     <form name="Formulario de foro">
         
-        <label for="nombreYApellidos">Nombre y apellidos</label>
-        <input type="text" name="nombreYApellidos" id="nombreYApellidos" required placeholder="Su nombre y apellidos">
+        <fieldset>
+            <legend>Datos personales</legend>
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required placeholder="Su email">
+            <label class="bloque" for="nombreYApellidos">Nombre y apellidos</label>
+            <input type="text" name="nombreYApellidos" id="nombreYApellidos" required placeholder="Su nombre y apellidos">
 
-        <label for="nombreUsuario">Nombre de Usuario</label>
-        <input type="text" name="nombreUsuario" id="nombreUsuario" required placeholder="Su nombre de usuario">
+            <label class="bloque" for="email">Email</label>
+            <input type="email" name="email" id="email" required placeholder="Su email">
 
-        <label for="contraseña">Contraseña</label>
-        <input type="password" name="contraseña" id="contraseña" required>
+            <label class="bloque" for="nombreUsuario">Nombre de Usuario</label>
+            <input type="text" name="nombreUsuario" id="nombreUsuario" required placeholder="Su nombre de usuario">
 
-        <label for="repetirContraseña">Repetir contraseña</label>
-        <input type="password" name="repetirContraseña" id="repetirContraseña" required>
+            <label class="bloque" for="contraseña">Contraseña</label>
+            <input type="password" name="contraseña" id="contraseña" required>
 
-        <label for="sexo">Sexo</label>
-        <input type="radio" name="sexo" value="H">Hombre
-        <input type="radio" name="sexo" value="M">Mujer
-        <input type="radio" name="sexo" value="N">Prefiero no especificar
+            <label class="bloque" for="repetirContraseña">Repetir contraseña</label>
+            <input type="password" name="repetirContraseña" id="repetirContraseña" required>
+
+            <label class="bloque" for="sexo">Sexo</label>
+            <input type="radio" name="sexo" value="H">Hombre
+            <input type="radio" name="sexo" value="M">Mujer
+            <input type="radio" name="sexo" value="N">Prefiero no especificar
+
+            <label class="bloque" for="fechaNacimiento">Fecha de nacimiento</label>
+            <input type="date" name="fechaNacimiento" id="fechaNacimiento" min="1920-00-01" max="09/02/2024">
+
+            <label class="bloque">Aficiones</label>
+            <input type="checkbox" name="bicicleta" id="bicicleta" value="bicicleta"><label for="bicicleta">Ir en bicicleta</label>
+            <input type="checkbox" name="videojuegos" id="videojuegos" value="videojuegos"><label for="videojuegos">Jugar videojuegos</label>
+            <input type="checkbox" name="programar" id="programar" value="programar"><label for="programar">Programar</label>
+            <input type="checkbox" name="comba" id="comba" value="comba"><label for="comba">Saltar a la comba</label>
+            <input type="checkbox" name="dormir" id="dormir" value="dormir"><label for="dormir">Dormir</label>
+            <input type="checkbox" name="barriga" id="barriga" value="barriga"><label for="barriga">Rascarse la barriga</label>
+            <input type="checkbox" name="tv" id="tv" value="tv"> <label for="tv">Ver televisión</label>
+            <input type="checkbox" name="cantar" id="cantar" value="cantar"><label for="cantar">Cantar</label>
+            <input type="checkbox" name="bailar" id="bailar" value="bailar"><label for="bailar">Bailar</label>
+            <input type="checkbox" name="parque" id="parque" value="parque"><label for="parque">Ir al parque</label>
+            <input type="checkbox" name="estudiar" id="estudiar" value="estudiar"><label for="estudiar">Estudiar</label>
+            <input type="checkbox" name="guitarra" id="guitarra" value="guitarra"><label for="guitarra">Tocar la guitarra</label>
+            <input type="checkbox" name="acordeon" id="acordeon" value="acordeon"><label for="acordeon">Tocar el acordeón</label>
+
+            <label class="bloque" for="enviar"></label>
+            <input type="submit" name="enviar" value="Enviar">
+        </fieldset>
     </form>
 </body>
 </html>
