@@ -16,7 +16,7 @@
             background-color: rgb(234,182,118);
         }
 
-        fieldset {
+        form{
 
             background-color: rgb(118,181,197);
         }
@@ -44,10 +44,9 @@
     </style>
 </head>
 <body>
-    <form name="Formulario de foro">
-        
-        <fieldset>
-            <legend>Datos personales</legend>
+    <fieldset>
+        <legend>Datos personales</legend>
+        <form name="Formulario de foro">            
 
             <label class="bloque" for="nombreYApellidos">Nombre y apellidos</label>
             <input type="text" name="nombreYApellidos" id="nombreYApellidos" required placeholder="Su nombre y apellidos">
@@ -89,7 +88,8 @@
 
             <label class="bloque" for="enviar"></label>
             <input type="submit" name="enviar" value="Enviar">
-        </fieldset>
-    </form>
+        
+        </form>
+    </fieldset>
 </body>
 </html>
