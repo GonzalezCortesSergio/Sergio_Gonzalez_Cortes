@@ -6,6 +6,36 @@
     <title>Ejercicio 4 - Formulario Alta</title>
     <style type="text/css">
 
+        * {
+
+            font-family: Arial;
+        }
+        .requerido {
+
+            color: red;
+        }
+
+        .titulo {
+
+            font-weight: bold;
+        }
+        form {
+
+            display: block;
+        }
+
+        
+        fieldset:hover{
+
+            background-color: #FF9;
+
+        }
+
+        input:focus {
+
+            border: solid 2px #E6B700;
+            
+        }
     </style>
 </head>
 <body>
@@ -13,23 +43,23 @@
     <h2>Formulario de alta</h2>
     <form name="formularioAlta" method="post" action="#">
 
-        <fieldset>
+        
             <fieldset> 
                 <label class="titulo" for="nombre">Nombre y apellidos <span class="requerido">*</span></label> 
                 <div> 
-                    <input id="nombre" name="nombre" value="" /> 
-                    <label for="nombre">Nombre</label> 		
+                    <br><input id="nombre" name="nombre" value=""><br>
+                    <label for="nombre">Nombre</label><br> 		
                 
-                    <input id="apellido1" name="apellido1" value="" /> 
-                    <label for="apellido1">Primer apellido</label> 
+                    <input id="apellido1" name="apellido1" value="" /><br>
+                    <label for="apellido1">Primer apellido</label><br>
                 
-                    <input id="apellido2" name="apellido2" value="" /> 
-                    <label for="apellido2">Segundo apellido</label> 
+                    <input id="apellido2" name="apellido2" value="" /><br> 
+                    <label for="apellido2">Segundo apellido</label><br> 
                     
                 </div> 
                 <p class="ayuda">No te olvides de escribir también tu segundo apellido</p>
             </fieldset>
-        </fieldset>
+    
 
     </form>
 </body>

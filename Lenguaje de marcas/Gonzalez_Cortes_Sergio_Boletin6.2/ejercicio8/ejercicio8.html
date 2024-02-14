@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8 - Reservas Hotel</title>
+    <style type="text/css">
+
+        form {
+
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        fieldset {
+
+            background-color: palegreen;
+
+        }
+        div {
+
+            margin: 20px;
+        }
+        [name="fechaEntrada"] {
+
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="#">
+        <fieldset>
+            <legend>Reserva hotel Maddison</legend>
+            <div>
+                <label for="numHuespedes">Número de huéspedes</label>
+                <input type="number" name="numHuespedes" id="numHuespedes">
+            </div>
+
+            <div>
+                <label for="fechaEntrada">Fecha de entrada</label>
+                <input type="date" name="fechaEntrada" id="fechaEntrada" min="14-02-2024">
+                <label for="fechaSalida">Fecha de salida</label>
+                <input type="date" name="fechaSalida" id="fechaSalida" min="14-02-2024" max="">
+            </div>
+            
+            <div>
+                <label for="tipoHabitacion">Tipo de habitación</label>
+                <select name="tipoHabitacion" id="tipoHabitacion">
+                    <option value="SU">Suite</option>
+                    <option value="ST">Standar</option>
+                    <option value="DB">Doble</option>
+                    <option value="PC">Con piscina</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="correo">Correo</label>
+                <input type="email" name="correo" id="correo">
+            </div>
+
+            <div>
+                <input type="submit" name="enviar" value="Enviar">
+            </div>
+        
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,57 +1,86 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-	<title>Ejercicio 3 - Formulario de alta</title> 
-	<meta charset="utf-8" /> 
-	<style type="text/css"> 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6 - Formulario de alta</title>
+    <style type="text/css">
 
-		body {
+        body {
 
-			font-family: Arial;
-		}
+            font-family: Arial;
+        }
         .requerido {
 
             color: red;
         }
 
-		.ayuda{
+        .ayuda{
 
-			display: none;
-		}
+            display: none;
+        }
 
-		div{
+        div{
 
-			display: block;
-		}
+            display: block;
+        }
 
-		div#formulario {
+        div#formulario {
 
-			border: solid 1px black;
-			padding: 10px;
-			width: 40%;
-			margin: 0 auto;
-		}
+            border: solid 1px black;
+            padding: 10px;
+            width: 40%;
+            margin: 0 auto;
+        }
 
-		.titulo {
+        .titulo {
 
-			font-weight: bold;
-		}
+            font-weight: bold;
+        }
 
-		#alta {
+        fieldset#alta{
 
-			position: relative;
-			left: 80%;
-		}
+            padding-left: 78%;
+            border: none;
+        }
 
-		
-	</style> 
-</head> 
-<body> 
-<main>
+        fieldset {
+
+            padding: 20px;
+            border-top: rgba(0, 0, 0, 0.2) 0.5px solid;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+           
+        }
+
+        fieldset:hover{
+
+            background-color: #FF9;
+        }
+
+        fieldset:hover>p.ayuda{
+
+            display: initial;
+        }
+
+        fieldset>div {
+
+            margin: 20px;
+        }
+
+        [for="telefonofijo"] {
+
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+   <main>
 	<div id="formulario">
 		<h2>Formulario de alta</h2> 
 		<form method="post" action="#"> 		
-			<fieldset id="nombre"> 
+			<fieldset> 
 				<label class="titulo" for="nombre">Nombre y apellidos <span class="requerido">*</span></label>
 				<div> 
 					<br><input id="nombre" name="nombre" value="" /> <br>
@@ -64,11 +93,11 @@
 					<label for="apellido2">Segundo apellido</label> <br>
 				</div> 
 				<p class="ayuda">No te olvides de escribir también tu segundo apellido</p>
-			</fieldset> 
-			<fieldset id="direccion"> 
+            </fieldset>
+            <fieldset>
 				<label class="titulo" for="direccion">Dirección <span class="requerido">*</span></label> 
 				<div> 				
-					<input id="direccion" name="direccion" value="" /> <br>
+					<br><input id="direccion" name="direccion" value="" /> <br>
 					<label for="direccion">Calle, número, piso, puerta</label> <br>
 				
 					<input id="codigopostal" name="codigopostal" value="" /> <br>
@@ -94,16 +123,20 @@
 					<label for="pais">País</label> 			
 				</div> 
 				<p class="ayuda">El código postal es imprescindible para poder recibir los pedidos</p> 
-			</fieldset> 
-			<fieldset id="email"> 
-				<label class="titulo" for="email">Email</label> 
+			 
+			</fieldset>
+            <fieldset>
+				<br><label class="titulo" for="email">Email</label> 
 				<div> 
 					<input id="email" name="email" value="" /> 
 				</div> 
 				<p class="ayuda">Asegúrate de que sea váfieldsetdo</p> 
-			</fieldset> 
-			<fieldset id="telefono"> 
-				<label class="titulo" for="telefonofijo">Teléfono <span class="requerido">*</span></label> 
+                
+            </fieldset>
+
+            <fieldset>
+			
+				<br><label class="titulo" for="telefonofijo">Teléfono <span class="requerido">*</span></label> 
 				<div> 				
 					<input id="telefonofijo" name="telefonofijo" value="" /> 
 					<label for="telefonofijo">Fijo</label> 
@@ -113,11 +146,11 @@
 				</div> 
 				<p class="ayuda">Sin prefijo de país y sin espacios en blanco</p> 
 			</fieldset> 
-			<fieldset> 
+			<fieldset id="alta"> 
 				<input id="alta" type="submit" value="Darme de alta &rarr;" /> 
 			</fieldset> 		
 		</form> 
 	</div>
-</main>
-</body> 
+</main> 
+</body>
 </html>
