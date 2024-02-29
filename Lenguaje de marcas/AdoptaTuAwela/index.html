@@ -10,7 +10,7 @@
 </head>
 <body class="bg-secondary">
     
-    <header class="container">
+    <header class="container-fluid container-xl">
 
         <div class="row bg-primary">
             
@@ -21,17 +21,30 @@
 
     </header>
 
-    <div class="row mx-auto">
-        
-        <aside class="row col-2 border ">
+    <nav class="navbar navbar-expand-xl  navbar-dark bg-dark mx-xl-5">
+        <div class="container-fluid container-xl">
+          <a class="navbar-brand" href="javascript:void(0)"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">Sobre nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">Abuelas disponibles</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="row my-5 mx-5 px-4">
 
-            <p class="col-12 text-center">Quienes somos</p>
-            <p class="col-12 text-center">De donde venimos</p>
-            <p class="col-12 text-center">A donde vamos</p>
-
-        </aside>
-
-        <main class="row col-8 border">
+        <main class="row col-10">
             
             <p class="col-12 text-center">Quienes somos</p>
             <p class="col-12 text-center">De donde venimos</p>
@@ -40,10 +53,10 @@
         
         </main>
 
-        <aside class="row col-2 border float-end">
-            <p class="col-12 text-center">Quienes somos</p>
-            <p class="col-12 text-center">De donde venimos</p>
-            <p class="col-12 text-center">A donde vamos</p>
+        <aside class="row col-2 border bg-white p-5">
+            <video src="./vid/anuncio Amazon - Abuela motera (febrero 2023).mp4" autoplay preload="auto" controls></video>
+
+            <p class="text-center">Anuncio</p>
         </aside>
 
     </div>
