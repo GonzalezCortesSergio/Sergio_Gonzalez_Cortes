@@ -1,24 +1,29 @@
-let listaNumeros = new Array();
-let numerichi;
-let tam = prompt("Cuántos números quiere introducir");
+let listaNumeros = pedirNumerichis();
+
+alert ("El array está compuesto por " + listaNumeros + " cuya suma es " + sumarNumerichis(listaNumeros))
 
 
-function pedirNumerichis (listaNumeros, numerichi, tam) {
+function pedirNumerichis () {
 
+    let dato;
+    let listaDatos = new Array()
+    let tam = prompt("Diga cuántos números quiere introducir")
     do {
 
-        numerichi = prompt("Introduzca un número, pulse espacio únicamente para salir");
-        if (numerichi !== '') {
+        dato = prompt("Introduzca un número, pulse espacio únicamente para salir");
+        if (dato !== '') {
 
-            if (listaNumeros.length >= tam) {
+            if (listaDatos.length >= tam) {
 
-                listaNumeros.shift();
+                listaDatos.shift();
             }
 
-            listaNumeros.push(numerichi);
+            listaDatos.push(dato);
         }
 
-    }while (numerichi !== '');
+    }while (dato !== '');
+
+    return listaDatos;
 }
 
 function sumarNumerichis (listaNumeros) {
@@ -26,10 +31,8 @@ function sumarNumerichis (listaNumeros) {
     let suma = 0;
 
     for (const numero of listaNumeros) {
-        suma+= numero;
+        suma+= parseInt(numero);
     }
 
     return suma;
 }
-
-alert ("La lista de números está compuesta por " + pedirNumerichis(listaNumeros, numerichi, tam) + " cuya suma es " + sumarNumerichis(listaNumeros));
