@@ -1,0 +1,24 @@
+body {
+
+    background-color: palegreen;
+    margin: 20px;
+}
+
+* {
+
+    font-family: 'Times New Roman';
+}
+
+div {
+
+    background-color: green;
+    width: 50%;
+    height: 400px;
+    margin: 50px auto;
+}
+
+div h1{
+
+    display: none;
+    color: white;
+}
