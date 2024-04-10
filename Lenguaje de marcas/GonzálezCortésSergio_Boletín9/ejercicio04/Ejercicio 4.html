@@ -5,25 +5,52 @@
 	<meta charset="utf-8">
 
 	<script>
+		
+		let escondido = false;
 
-		let enlaces = document.getElementsByTagName("a");
+		window.onload = function() {
+
+		let enlaces = document.querySelectorAll("a");
+		
 
 		for(let i = 0; i < enlaces.length; i++) {
 
 			enlaces[i].addEventListener("click", muestraOculta);
 		}
-		function muestraOculta() {
-
-			for(let i = 0; i < enlaces.length; i++) {
-
-				if (enlaces[i].dispatchEvent()) {
-
-					let parrafo = enlaces[i].previousElementSibling.getAttribute;
-
-				
-				}
-			}
 		}
+
+		function muestraOculta() {
+			
+			let enlace1 = document.getElementById("enlace_1");
+			let enlace2 = document.getElementById("enlace_2");
+			let enlace3 = document.getElementById("enlace_3");
+
+			
+			if (enlace1.click) {
+				
+				escondido = !escondido;
+				
+				document.getElementById("contenidos_1").hidden = escondido;
+
+			}
+
+			if (enlace2.click) {
+
+				escondido = !escondido;
+
+				document.getElementById("contenidos_2").hidden = escondido;
+			}
+
+			if (enlace3.click) {
+
+				escondido = !escondido;
+
+				document.getElementById("contenidos_3").hidden = escondido;
+			}
+			
+
+		}
+		
 	</script>
 </head>
 <body>
