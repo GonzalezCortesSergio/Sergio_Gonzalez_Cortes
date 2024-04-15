@@ -10,13 +10,20 @@
 		#info h1 {margin: 0;}
 	</style>
 	<script>
-	function muestraInformacion(mensaje) {
-		let info = document.getElementById("info");
-		info.innerHTML = '<h1>'+mensaje[0]+'</h1>';
-		for(let elemento of mensaje) {
-			info.innerHTML += '<p>'+elemento+'</p>';
+
+		window.onload = function (){
+
+			let cosita = document.querySelector("body");
+
+			cosita.addEventListener("pointermove", muestraInformacion);
+			function muestraInformacion(mensaje) {
+				let info = document.getElementById("info");
+				info.innerHTML = '<h1>'+mensaje[0]+'</h1>';
+				for(let elemento of mensaje) {
+					info.innerHTML += '<p>'+elemento+'</p>';
+				}
+			}
 		}
-	}
 	</script>
 </head>
 <body>
