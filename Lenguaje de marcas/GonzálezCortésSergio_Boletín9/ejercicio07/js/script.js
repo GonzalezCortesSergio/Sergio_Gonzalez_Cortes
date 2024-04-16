@@ -1,5 +1,8 @@
 let formulario = document.forms.formulario;
 
+let fechaHoy = new Date().toISOString().substring(0, 10);
+formulario.elements.fechaNacimiento.max = fechaHoy;
+
 formulario.addEventListener("submit", comprobarCositas);
 
 function comprobarDni() {
@@ -24,6 +27,7 @@ function comprobarContrasenia() {
         alert("Las dos contraseñas no coinciden");
     }
 }
+
 
 function comprobarCositas() {
 
