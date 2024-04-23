@@ -52,10 +52,27 @@ function comprobarDNI() {
         mensajeError.classList.add("bg-danger");
         mensajeError.innerHTML = "La letra del DNI es incorrecta";
 
-        datosErroneos = true
+        datosErroneos = true;
     }
 
 
+}
+
+function comprobarCorreo() {
+
+    let patronCorreo =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+    let campoCorreo = formulario.elements.email;
+
+    if (!patronCorreo.test(campoCorreo.value)) {
+
+        let mensajeError = campoCorreo.nextElementSibling;
+
+        mensajeError.classList.add("bg-danger");
+        mensajeError.innerHTML = "El correo no es válido";
+
+        datosErroneos = true;
+    }
 }
 
 function comprobarDatos(evento) {
@@ -65,6 +82,7 @@ function comprobarDatos(evento) {
     datosErroneos = false;
     
     comprobarDNI();
+    comprobarCorreo();
 
     if (!datosErroneos) {
 
