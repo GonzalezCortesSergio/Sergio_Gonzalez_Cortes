@@ -13,15 +13,58 @@
 
 		window.onload = function (){
 
-			let cosita = document.querySelector("body");
+			let cosita = document.querySelector("html");
 
-			cosita.addEventListener("pointermove", muestraInformacion);
-			function muestraInformacion(mensaje) {
+			cosita.addEventListener("mousemove", muestraInformacion01);
+			cosita.addEventListener("keypress", muestraInformacion02);
+			cosita.addEventListener("click", muestraInformacion03);
+
+			function muestraInformacion01(evento) {
+
+				let horizontal = evento.clientX;
+				let vertical = evento.clientY;
+
+				let pHorizontal = evento.pageX;
+				let pVertical = evento.pageY;
+
 				let info = document.getElementById("info");
-				info.innerHTML = '<h1>'+mensaje[0]+'</h1>';
-				for(let elemento of mensaje) {
-					info.innerHTML += '<p>'+elemento+'</p>';
-				}
+
+				info.innerHTML = '<h1>'+"Ratón"+'</h1>';
+				
+				info.innerHTML += "<p>" + "Navegador [ " + horizontal + ", " + vertical + " ]" + "</p>";
+				info.innerHTML += "<p>" + "Página [ " + pHorizontal + ", " + pVertical + " ]" + "</p>";
+
+				info.style.backgroundColor = "#FFFFFF";
+			}
+
+			function muestraInformacion02(evento) {
+
+				let caracter = evento.key;
+				let codigo = evento.keyCode;
+
+				let info = document.getElementById("info");
+
+				info.innerHTML = "<h1>" + "Teclado" + "</h1>";
+				info.innerHTML += "<p>" + "Carácter [ " + caracter + " ]" + "</p>";
+				info.innerHTML += "<p>" + "Código [ " + codigo + " ]" + "</p>";
+
+				info.style.backgroundColor = "#CCE6FF";
+			}
+
+			function muestraInformacion03(evento) {
+
+				let horizontal = e.clientX;
+				let y = e.clientY;
+				let pHorizontal = e.pageX;
+				let pVertical = e.pageY;
+
+				let info = document.getElementById("info");
+
+				info.innerHTML = "<h1>" + "Ratón" + "</h1>";
+   				info.innerHTML += "<p>" + "Navegador [ "+ horizontal + ", " + vertical + " ]" + '</p>';
+    			info.innerHTML += "<p>" + "Página [ " + pHorizontal + ", " + pHorizontal + " ]" + '</p>';
+
+				info.style.backgroundColor = "#FFFFCC";
 			}
 		}
 	</script>
