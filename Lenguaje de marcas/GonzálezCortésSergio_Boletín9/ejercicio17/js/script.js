@@ -7,6 +7,6 @@ for (boton of botonesEditar) {
 
 function editarColumna(evento) {
 
-    this.classList.toggle("bi bi-save btnEditar");
+    this.classList.toggle("bi-save");
     
 }
